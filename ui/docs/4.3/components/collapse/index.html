@@ -1,0 +1,798 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Toggle the visibility of content across your project with a few classes and our JavaScript plugins.">
+<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+<meta name="generator" content="Hugo 0.59.1">
+
+<meta name="docsearch:language" content="en">
+<meta name="docsearch:version" content="4.3">
+
+<title>Collapse · Bootstrap</title>
+
+<link rel="canonical" href="https://getbootstrap.com/docs/4.3/components/collapse/">
+
+
+
+<!-- Bootstrap core CSS -->
+<a href="../../../../../helpers/moodlecss.php" id="moodlephp">
+	<script type="text/javascript" src="../../../../../helpers/moodleresources.js"></script>
+
+<!-- Documentation extras -->
+<link href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="../../../../docs/4.3/assets/css/docs.css">
+
+<!-- Favicons -->
+<link rel="apple-touch-icon" href="../../../../docs/4.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="../../../../docs/4.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../../../../docs/4.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="../../../../docs/4.3/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="../../../../docs/4.3/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+<link rel="icon" href="../../../../docs/4.3/assets/img/favicons/favicon.ico">
+<meta name="msapplication-config" content="/docs/4.3/assets/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#563d7c">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@getbootstrap">
+<meta name="twitter:creator" content="@getbootstrap">
+<meta name="twitter:title" content="Collapse">
+<meta name="twitter:description" content="Toggle the visibility of content across your project with a few classes and our JavaScript plugins.">
+<meta name="twitter:image" content="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-social.png">
+
+<!-- Facebook -->
+<meta property="og:url" content="https://getbootstrap.com/docs/4.3/components/collapse/">
+<meta property="og:title" content="Collapse">
+<meta property="og:description" content="Toggle the visibility of content across your project with a few classes and our JavaScript plugins.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="http://getbootstrap.com/docs/4.3/assets/brand/bootstrap-social.png">
+<meta property="og:image:secure_url" content="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-social.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-146052-10', 'getbootstrap.com');
+  ga('set', 'anonymizeIp', true);
+  ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+  </head>
+  <body>
+    <a class="skippy sr-only" href="#content">
+  <span class="skippy-text">Skip to main content</span>
+</a>
+
+
+    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar px-0">
+  <div class="container-fluid flex-wrap flex-md-nowrap py-0 px-3">
+    <a class="navbar-brand mr-0 mr-md-2" href="../../../../" aria-label="Bootstrap">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="d-block" viewBox="0 0 64 64" role="img"><title>Bootstrap</title><path fill="currentColor" fill-rule="evenodd" d="M16 0h32c8.837 0 16 7.163 16 16v32c0 8.837-7.163 16-16 16H16C7.163 64 0 56.837 0 48V16C0 7.163 7.163 0 16 0zm18.14 49c7.22 0 11.555-3.633 11.555-9.586 0-4.406-3.047-7.664-7.617-8.133v-.398c3.328-.563 5.93-3.727 5.93-7.266 0-5.203-3.82-8.437-10.172-8.437H20.242V49h13.899zm-8.648-29.367h7.125c3.89 0 6.164 1.828 6.164 4.945 0 3.211-2.414 4.922-7.054 4.922h-6.235v-9.867zm0 24.914V33.648h7.29c4.945 0 7.546 1.852 7.546 5.391 0 3.586-2.508 5.508-7.242 5.508h-7.594z"/></svg>
+
+    </a>
+
+    <div class="navbar-nav-scroll order-3 order-md-0 d-flex justify-content-center justify-content-md-start">
+      <ul class="navbar-nav bd-navbar-nav flex-row">
+        <li class="nav-item">
+          <a class="nav-link" href="../../../../" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Bootstrap');">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="../../../../docs/4.3/getting-started/introduction/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Docs');">Docs</a>
+        </li>
+        
+      </ul>
+    </div>
+
+    <ul class="navbar-nav ml-sm-auto">
+
+    </ul>
+
+  </div>
+</header>
+
+    
+
+
+    <div class="containe-fluid py-4 bg-white">
+      <div class="row flex-nowrap">
+        <div class="col-md-3 bd-sidebar">
+          <nav class="collapse bd-links" id="bd-docs-nav" aria-label="Main navigation"><ul class="list-unstyled">
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/moodle-components/introduction/">
+        <div>Moodle Components</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/moodle-components/introduction/">Introduction</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/moodle-components/search/">Search</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/moodle-components/test/">Test</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/layout/overview/">
+        <div>Layout</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/layout/overview/">Overview</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/layout/grid/">Grid</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/layout/utilities-for-layout/">Utilities for layout</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/content/reboot/">
+        <div>Content</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/content/reboot/">Reboot</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/content/typography/">Typography</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/content/images/">Images</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/content/tables/">Tables</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/content/figures/">Figures</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/forms/overview/">
+        <div>Forms</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/forms/overview/">Overview</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/forms/form-control/">Form control</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/forms/select/">Select</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/forms/checks/">Checks</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/forms/file/">File</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/forms/range/">Range</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/forms/input-group/">Input group</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/forms/layout/">Layout</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/forms/validation/">Validation</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 active js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/components/alerts/">
+        <div>Components</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/components/alerts/">Alerts</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/badge/">Badge</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/breadcrumb/">Breadcrumb</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/buttons/">Buttons</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/button-group/">Button group</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/card/">Card</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/carousel/">Carousel</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/close-button/">Close button</a>
+          </li>
+          <li class="active bd-sidenav-active">
+            <a href="../../../../docs/4.3/components/collapse/">Collapse</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/dropdowns/">Dropdowns</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/icons/">Icons</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/list-group/">List group</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/modal/">Modal</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/navs/">Navs</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/navbar/">Navbar</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/pagination/">Pagination</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/popovers/">Popovers</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/progress/">Progress</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/scrollspy/">Scrollspy</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/spinners/">Spinners</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/toasts/">Toasts</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/tooltips/">Tooltips</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/helpers/clearfix/">
+        <div>Helpers</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/helpers/clearfix/">Clearfix</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/helpers/colored-links/">Colored links</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/helpers/embed/">Embed</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/helpers/position/">Position</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/helpers/screen-readers/">Screen readers</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/helpers/stretched-link/">Stretched link</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/helpers/text-truncation/">Text truncation</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/utilities/api/">
+        <div>Utilities</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/utilities/api/">API</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/borders/">Borders</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/colors/">Colors</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/display/">Display</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/flex/">Flex</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/float/">Float</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/overflow/">Overflow</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/position/">Position</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/shadows/">Shadows</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/sizing/">Sizing</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/spacing/">Spacing</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/text/">Text</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/vertical-align/">Vertical align</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/visibility/">Visibility</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/extend/approach/">
+        <div>Extend</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/extend/approach/">Approach</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/extend/icons/">Icons</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/about/overview/">
+        <div>About</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/about/overview/">Overview</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/about/team/">Team</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/about/brand/">Brand</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/about/license/">License</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/about/translations/">Translations</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="my-3 mx-4 border-top"></li>
+    <li class="bd-sidenav-group pl-3">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/migration/">
+        Migration
+      </a>
+    </li>
+  </ul>
+</nav>
+
+        </div>
+
+        <main class="col-md-9 py-md-3 pl-md-5 bd-content" role="main">
+          <h1 class="bd-title" id="content">Collapse</h1>
+          <p class="bd-lead">Toggle the visibility of content across your project with a few classes and our JavaScript plugins.</p>
+
+
+          
+
+          
+            <strong class="d-block h3 mt-5 mb-3">On this page</strong>
+            <nav class="bd-toc mb-5" aria-label="Secondary navigation">
+              <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#how-it-works">How it works</a></li>
+<li><a href="#example">Example</a></li>
+<li><a href="#multiple-targets">Multiple targets</a></li>
+<li><a href="#accordion-example">Accordion example</a></li>
+<li><a href="#accessibility">Accessibility</a></li>
+<li><a href="#usage">Usage</a>
+<ul>
+<li><a href="#via-data-attributes">Via data attributes</a></li>
+<li><a href="#via-javascript">Via JavaScript</a></li>
+<li><a href="#options">Options</a></li>
+<li><a href="#methods">Methods</a></li>
+<li><a href="#events">Events</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+            </nav>
+          
+
+          
+
+<h2 id="how-it-works">How it works</h2>
+
+<p>The collapse JavaScript plugin is used to show and hide content. Buttons or anchors are used as triggers that are mapped to specific elements you toggle. Collapsing an element will animate the <code>height</code> from its current value to <code>0</code>. Given how CSS handles animations, you cannot use <code>padding</code> on a <code>.collapse</code> element. Instead, use the class as an independent wrapping element.</p>
+
+<div class="bd-callout bd-callout-info">
+The animation effect of this component is dependent on the <code>prefers-reduced-motion</code> media query. See the <a href="../../../../docs/4.3/getting-started/accessibility/#reduced-motion">reduced motion section of our accessibility documentation</a>.
+</div>
+
+
+<h2 id="example">Example</h2>
+
+<p>Click the buttons below to show and hide another element via class changes:</p>
+
+<ul>
+<li><code>.collapse</code> hides content</li>
+<li><code>.collapsing</code> is applied during transitions</li>
+<li><code>.collapse.show</code> shows content</li>
+</ul>
+
+<p>You can use a link with the <code>href</code> attribute, or a button with the <code>data-target</code> attribute. In both cases, the <code>data-toggle=&quot;collapse&quot;</code> is required.</p>
+
+<div class="bd-example">
+<p>
+  <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Link with href
+  </a>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Button with data-target
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+  </div>
+</div>
+</div><div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-primary&#34;</span> <span class="na">data-toggle</span><span class="o">=</span><span class="s">&#34;collapse&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;#collapseExample&#34;</span> <span class="na">role</span><span class="o">=</span><span class="s">&#34;button&#34;</span> <span class="na">aria-expanded</span><span class="o">=</span><span class="s">&#34;false&#34;</span> <span class="na">aria-controls</span><span class="o">=</span><span class="s">&#34;collapseExample&#34;</span><span class="p">&gt;</span>
+    Link with href
+  <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-primary&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;button&#34;</span> <span class="na">data-toggle</span><span class="o">=</span><span class="s">&#34;collapse&#34;</span> <span class="na">data-target</span><span class="o">=</span><span class="s">&#34;#collapseExample&#34;</span> <span class="na">aria-expanded</span><span class="o">=</span><span class="s">&#34;false&#34;</span> <span class="na">aria-controls</span><span class="o">=</span><span class="s">&#34;collapseExample&#34;</span><span class="p">&gt;</span>
+    Button with data-target
+  <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;collapse&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;collapseExample&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;card card-body&#34;</span><span class="p">&gt;</span>
+    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre></div>
+
+<h2 id="multiple-targets">Multiple targets</h2>
+
+<p>A <code>&lt;button&gt;</code> or <code>&lt;a&gt;</code> can show and hide multiple elements by referencing them with a selector in its <code>href</code> or <code>data-target</code> attribute.
+Multiple <code>&lt;button&gt;</code> or <code>&lt;a&gt;</code> can show and hide an element if they each reference it with their <code>href</code> or <code>data-target</code> attribute</p>
+
+<div class="bd-example">
+<p>
+  <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle first element</a>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Toggle second element</button>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Toggle both elements</button>
+</p>
+<div class="row">
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample1">
+      <div class="card card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample2">
+      <div class="card card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+      </div>
+    </div>
+  </div>
+</div>
+</div><div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-primary&#34;</span> <span class="na">data-toggle</span><span class="o">=</span><span class="s">&#34;collapse&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;#multiCollapseExample1&#34;</span> <span class="na">role</span><span class="o">=</span><span class="s">&#34;button&#34;</span> <span class="na">aria-expanded</span><span class="o">=</span><span class="s">&#34;false&#34;</span> <span class="na">aria-controls</span><span class="o">=</span><span class="s">&#34;multiCollapseExample1&#34;</span><span class="p">&gt;</span>Toggle first element<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-primary&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;button&#34;</span> <span class="na">data-toggle</span><span class="o">=</span><span class="s">&#34;collapse&#34;</span> <span class="na">data-target</span><span class="o">=</span><span class="s">&#34;#multiCollapseExample2&#34;</span> <span class="na">aria-expanded</span><span class="o">=</span><span class="s">&#34;false&#34;</span> <span class="na">aria-controls</span><span class="o">=</span><span class="s">&#34;multiCollapseExample2&#34;</span><span class="p">&gt;</span>Toggle second element<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-primary&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;button&#34;</span> <span class="na">data-toggle</span><span class="o">=</span><span class="s">&#34;collapse&#34;</span> <span class="na">data-target</span><span class="o">=</span><span class="s">&#34;.multi-collapse&#34;</span> <span class="na">aria-expanded</span><span class="o">=</span><span class="s">&#34;false&#34;</span> <span class="na">aria-controls</span><span class="o">=</span><span class="s">&#34;multiCollapseExample1 multiCollapseExample2&#34;</span><span class="p">&gt;</span>Toggle both elements<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;row&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;col&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;collapse multi-collapse&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;multiCollapseExample1&#34;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;card card-body&#34;</span><span class="p">&gt;</span>
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;col&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;collapse multi-collapse&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;multiCollapseExample2&#34;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;card card-body&#34;</span><span class="p">&gt;</span>
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre></div>
+
+<h2 id="accordion-example">Accordion example</h2>
+
+<p>Using the <a href="../../../../docs/4.3/components/card/">card</a> component, you can extend the default collapse behavior to create an accordion. To properly achieve the accordion style, be sure to use <code>.accordion</code> as a wrapper.</p>
+
+<div class="bd-example">
+<div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Collapsible Group Item #1
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Collapsible Group Item #2
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Collapsible Group Item #3
+        </button>
+      </h2>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
+</div><div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;accordion&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;accordionExample&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;card&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;card-header&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;headingOne&#34;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;mb-0&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-link btn-block text-left&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;button&#34;</span> <span class="na">data-toggle</span><span class="o">=</span><span class="s">&#34;collapse&#34;</span> <span class="na">data-target</span><span class="o">=</span><span class="s">&#34;#collapseOne&#34;</span> <span class="na">aria-expanded</span><span class="o">=</span><span class="s">&#34;true&#34;</span> <span class="na">aria-controls</span><span class="o">=</span><span class="s">&#34;collapseOne&#34;</span><span class="p">&gt;</span>
+          Collapsible Group Item #1
+        <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;collapseOne&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;collapse show&#34;</span> <span class="na">aria-labelledby</span><span class="o">=</span><span class="s">&#34;headingOne&#34;</span> <span class="na">data-parent</span><span class="o">=</span><span class="s">&#34;#accordionExample&#34;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;card-body&#34;</span><span class="p">&gt;</span>
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&#39;t heard of them accusamus labore sustainable VHS.
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;card&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;card-header&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;headingTwo&#34;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;mb-0&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-link btn-block text-left collapsed&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;button&#34;</span> <span class="na">data-toggle</span><span class="o">=</span><span class="s">&#34;collapse&#34;</span> <span class="na">data-target</span><span class="o">=</span><span class="s">&#34;#collapseTwo&#34;</span> <span class="na">aria-expanded</span><span class="o">=</span><span class="s">&#34;false&#34;</span> <span class="na">aria-controls</span><span class="o">=</span><span class="s">&#34;collapseTwo&#34;</span><span class="p">&gt;</span>
+          Collapsible Group Item #2
+        <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;collapseTwo&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;collapse&#34;</span> <span class="na">aria-labelledby</span><span class="o">=</span><span class="s">&#34;headingTwo&#34;</span> <span class="na">data-parent</span><span class="o">=</span><span class="s">&#34;#accordionExample&#34;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;card-body&#34;</span><span class="p">&gt;</span>
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&#39;t heard of them accusamus labore sustainable VHS.
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;card&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;card-header&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;headingThree&#34;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;mb-0&#34;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;btn btn-link btn-block text-left collapsed&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;button&#34;</span> <span class="na">data-toggle</span><span class="o">=</span><span class="s">&#34;collapse&#34;</span> <span class="na">data-target</span><span class="o">=</span><span class="s">&#34;#collapseThree&#34;</span> <span class="na">aria-expanded</span><span class="o">=</span><span class="s">&#34;false&#34;</span> <span class="na">aria-controls</span><span class="o">=</span><span class="s">&#34;collapseThree&#34;</span><span class="p">&gt;</span>
+          Collapsible Group Item #3
+        <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;collapseThree&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;collapse&#34;</span> <span class="na">aria-labelledby</span><span class="o">=</span><span class="s">&#34;headingThree&#34;</span> <span class="na">data-parent</span><span class="o">=</span><span class="s">&#34;#accordionExample&#34;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;card-body&#34;</span><span class="p">&gt;</span>
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&#39;t heard of them accusamus labore sustainable VHS.
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre></div>
+
+<h2 id="accessibility">Accessibility</h2>
+
+<p>Be sure to add <code>aria-expanded</code> to the control element. This attribute explicitly conveys the current state of the collapsible element tied to the control to screen readers and similar assistive technologies. If the collapsible element is closed by default, the attribute on the control element should have a value of <code>aria-expanded=&quot;false&quot;</code>. If you&rsquo;ve set the collapsible element to be open by default using the <code>show</code> class, set <code>aria-expanded=&quot;true&quot;</code> on the control instead. The plugin will automatically toggle this attribute on the control based on whether or not the collapsible element has been opened or closed (via JavaScript, or because the user triggered another control element also tied to the same collapsible element). If the control element&rsquo;s HTML element is not a button (e.g., an <code>&lt;a&gt;</code> or <code>&lt;div&gt;</code>), the attribute <code>role=&quot;button&quot;</code> should be added to the element.</p>
+
+<p>If your control element is targeting a single collapsible element – i.e. the <code>data-target</code> attribute is pointing to an <code>id</code> selector – you should add the <code>aria-controls</code> attribute to the control element, containing the <code>id</code> of the collapsible element. Modern screen readers and similar assistive technologies make use of this attribute to provide users with additional shortcuts to navigate directly to the collapsible element itself.</p>
+
+<p>Note that Bootstrap&rsquo;s current implementation does not cover the various keyboard interactions described in the <a href="https://www.w3.org/TR/wai-aria-practices-1.1/#accordion">WAI-ARIA Authoring Practices 1.1 accordion pattern</a> - you will need to include these yourself with custom JavaScript.</p>
+
+<h2 id="usage">Usage</h2>
+
+<p>The collapse plugin utilizes a few classes to handle the heavy lifting:</p>
+
+<ul>
+<li><code>.collapse</code> hides the content</li>
+<li><code>.collapse.show</code> shows the content</li>
+<li><code>.collapsing</code> is added when the transition starts, and removed when it finishes</li>
+</ul>
+
+<p>These classes can be found in <code>_transitions.scss</code>.</p>
+
+<h3 id="via-data-attributes">Via data attributes</h3>
+
+<p>Just add <code>data-toggle=&quot;collapse&quot;</code> and a <code>data-target</code> to the element to automatically assign control of one or more collapsible elements. The <code>data-target</code> attribute accepts a CSS selector to apply the collapse to. Be sure to add the class <code>collapse</code> to the collapsible element. If you&rsquo;d like it to default open, add the additional class <code>show</code>.</p>
+
+<p>To add accordion-like group management to a collapsible area, add the data attribute <code>data-parent=&quot;#selector&quot;</code>. Refer to the demo to see this in action.</p>
+
+<h3 id="via-javascript">Via JavaScript</h3>
+
+<p>Enable manually with:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">collapseElementList</span> <span class="o">=</span> <span class="p">[].</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;.collapse&#39;</span><span class="p">))</span>
+<span class="kd">var</span> <span class="nx">collapseList</span> <span class="o">=</span> <span class="nx">collapseElementList</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">collapseEl</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nx">bootstrap</span><span class="p">.</span><span class="nx">Collapse</span><span class="p">(</span><span class="nx">collapseEl</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div>
+
+<h3 id="options">Options</h3>
+
+<p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code>data-</code>, as in <code>data-parent=&quot;&quot;</code>.</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th style="width: 100px;">Name</th>
+      <th style="width: 50px;">Type</th>
+      <th style="width: 50px;">Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>parent</td>
+      <td>selector | jQuery object | DOM element </td>
+      <td>false</td>
+      <td>If parent is provided, then all collapsible elements under the specified parent will be closed when this collapsible item is shown. (similar to traditional accordion behavior - this is dependent on the <code>card</code> class). The attribute has to be set on the target collapsible area.</td>
+    </tr>
+    <tr>
+      <td>toggle</td>
+      <td>boolean</td>
+      <td>true</td>
+      <td>Toggles the collapsible element on invocation</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="methods">Methods</h3>
+
+<div class="bd-callout bd-callout-danger">
+<h4 id="asynchronous-methods-and-transitions">Asynchronous methods and transitions</h4>
+
+<p>All API methods are <strong>asynchronous</strong> and start a <strong>transition</strong>. They return to the caller as soon as the transition is started but <strong>before it ends</strong>. In addition, a method call on a <strong>transitioning component will be ignored</strong>.</p>
+
+<p><a href="../../../../docs/4.3/getting-started/javascript/">See our JavaScript documentation for more information</a>.</p>
+
+</div>
+
+
+<p>Activates your content as a collapsible element. Accepts an optional options <code>object</code>.</p>
+
+<p>You can create a collapse instance with the constructor, for example:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">myCollapse</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myCollapse&#39;</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">bsCollapse</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">bootstrap</span><span class="p">.</span><span class="nx">Collapse</span><span class="p">(</span><span class="nx">myCollapse</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">toggle</span><span class="o">:</span> <span class="kc">false</span>
+<span class="p">})</span>
+</code></pre></div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>toggle</code></td>
+      <td>Toggles a collapsible element to shown or hidden. <strong>Returns to the caller before the collapsible element has actually been shown or hidden</strong> (i.e. before the <code>shown.bs.collapse</code> or <code>hidden.bs.collapse</code> event occurs).</td>
+    </tr>
+    <tr>
+      <td><code>show</code></td>
+      <td>Shows a collapsible element. <strong>Returns to the caller before the collapsible element has actually been shown</strong> (e.g., before the <code>shown.bs.collapse</code> event occurs). </td>
+    </tr>
+    <tr>
+      <td><code>hide</code></td>
+      <td>Hides a collapsible element. <strong>Returns to the caller before the collapsible element has actually been hidden</strong> (e.g., before the <code>hidden.bs.collapse</code> event occurs).</td>
+    </tr>
+    <tr>
+      <td><code>dispose</code></td>
+      <td>Destroys an element's collapse.</td>
+    </tr>
+    <tr>
+      <td><code>getInstance</code></td>
+      <td>Static method which allows you to get the collapse instance associated with a DOM element.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="events">Events</h3>
+
+<p>Bootstrap&rsquo;s collapse class exposes a few events for hooking into collapse functionality.</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th style="width: 150px;">Event type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>show.bs.collapse</td>
+      <td>This event fires immediately when the <code>show</code> instance method is called.</td>
+    </tr>
+    <tr>
+      <td>shown.bs.collapse</td>
+      <td>This event is fired when a collapse element has been made visible to the user (will wait for CSS transitions to complete).</td>
+    </tr>
+    <tr>
+      <td>hide.bs.collapse</td>
+      <td>This event is fired immediately when the <code>hide</code> method has been called.</td>
+    </tr>
+    <tr>
+      <td>hidden.bs.collapse</td>
+      <td>This event is fired when a collapse element has been hidden from the user (will wait for CSS transitions to complete).</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">myCollapsible</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;myCollapsible&#39;</span><span class="p">)</span>
+<span class="nx">myCollapsible</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;hidden.bs.collapse&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// do something...
+</span><span class="c1"></span><span class="p">})</span>
+</code></pre></div>
+
+        </main>
+      </div>
+    </div>
+
+    <footer>
+</footer>
+
+    <script src="../../../../docs/4.3/dist/js/bootstrap.bundle.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+
+<script src="../../../../docs/4.3/assets/js/docs.js"></script>
+
+  </body>
+</html>

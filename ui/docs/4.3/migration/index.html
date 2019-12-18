@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Track and review changes to the Bootstrap source files, documentation, and components to help you migrate from v4 to v5.">
+<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+<meta name="generator" content="Hugo 0.59.1">
+
+<meta name="docsearch:language" content="en">
+<meta name="docsearch:version" content="4.3">
+
+<title>Migrating to v5 · Bootstrap</title>
+
+<link rel="canonical" href="https://getbootstrap.com/docs/4.3/migration/">
+
+
+
+<!-- Bootstrap core CSS -->
+<a href="../../../../helpers/moodlecss.php" id="moodlephp">
+	<script type="text/javascript" src="../../../../helpers/moodleresources.js"></script>
+
+<!-- Documentation extras -->
+<link href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="../../../docs/4.3/assets/css/docs.css">
+
+<!-- Favicons -->
+<link rel="apple-touch-icon" href="../../../docs/4.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="../../../docs/4.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../../../docs/4.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="../../../docs/4.3/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="../../../docs/4.3/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+<link rel="icon" href="../../../docs/4.3/assets/img/favicons/favicon.ico">
+<meta name="msapplication-config" content="/docs/4.3/assets/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#563d7c">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@getbootstrap">
+<meta name="twitter:creator" content="@getbootstrap">
+<meta name="twitter:title" content="Migrating to v5">
+<meta name="twitter:description" content="Track and review changes to the Bootstrap source files, documentation, and components to help you migrate from v4 to v5.">
+<meta name="twitter:image" content="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-social.png">
+
+<!-- Facebook -->
+<meta property="og:url" content="https://getbootstrap.com/docs/4.3/migration/">
+<meta property="og:title" content="Migrating to v5">
+<meta property="og:description" content="Track and review changes to the Bootstrap source files, documentation, and components to help you migrate from v4 to v5.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="http://getbootstrap.com/docs/4.3/assets/brand/bootstrap-social.png">
+<meta property="og:image:secure_url" content="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-social.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-146052-10', 'getbootstrap.com');
+  ga('set', 'anonymizeIp', true);
+  ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+  </head>
+  <body>
+    <a class="skippy sr-only" href="#content">
+  <span class="skippy-text">Skip to main content</span>
+</a>
+
+
+    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar px-0">
+  <div class="container-fluid flex-wrap flex-md-nowrap py-0 px-3">
+    <a class="navbar-brand mr-0 mr-md-2" href="../../../" aria-label="Bootstrap">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="d-block" viewBox="0 0 64 64" role="img"><title>Bootstrap</title><path fill="currentColor" fill-rule="evenodd" d="M16 0h32c8.837 0 16 7.163 16 16v32c0 8.837-7.163 16-16 16H16C7.163 64 0 56.837 0 48V16C0 7.163 7.163 0 16 0zm18.14 49c7.22 0 11.555-3.633 11.555-9.586 0-4.406-3.047-7.664-7.617-8.133v-.398c3.328-.563 5.93-3.727 5.93-7.266 0-5.203-3.82-8.437-10.172-8.437H20.242V49h13.899zm-8.648-29.367h7.125c3.89 0 6.164 1.828 6.164 4.945 0 3.211-2.414 4.922-7.054 4.922h-6.235v-9.867zm0 24.914V33.648h7.29c4.945 0 7.546 1.852 7.546 5.391 0 3.586-2.508 5.508-7.242 5.508h-7.594z"/></svg>
+
+    </a>
+
+    <div class="navbar-nav-scroll order-3 order-md-0 d-flex justify-content-center justify-content-md-start">
+      <ul class="navbar-nav bd-navbar-nav flex-row">
+        <li class="nav-item">
+          <a class="nav-link" href="../../../" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Bootstrap');">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="../../../docs/4.3/getting-started/introduction/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Docs');">Docs</a>
+        </li>
+        
+      </ul>
+    </div>
+
+    <ul class="navbar-nav ml-sm-auto">
+
+    </ul>
+
+  </div>
+</header>
+
+    
+
+
+    <div class="containe-fluid py-4 bg-white">
+      <div class="row flex-nowrap">
+        <div class="col-md-3 bd-sidebar">
+          <nav class="collapse bd-links" id="bd-docs-nav" aria-label="Main navigation"><ul class="list-unstyled">
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../docs/4.3/moodle-components/introduction/">
+        <div>Moodle Components</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../docs/4.3/moodle-components/introduction/">Introduction</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/moodle-components/search/">Search</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/moodle-components/test/">Test</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../docs/4.3/layout/overview/">
+        <div>Layout</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../docs/4.3/layout/overview/">Overview</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/layout/grid/">Grid</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/layout/utilities-for-layout/">Utilities for layout</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../docs/4.3/content/reboot/">
+        <div>Content</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../docs/4.3/content/reboot/">Reboot</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/content/typography/">Typography</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/content/images/">Images</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/content/tables/">Tables</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/content/figures/">Figures</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../docs/4.3/forms/overview/">
+        <div>Forms</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../docs/4.3/forms/overview/">Overview</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/forms/form-control/">Form control</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/forms/select/">Select</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/forms/checks/">Checks</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/forms/file/">File</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/forms/range/">Range</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/forms/input-group/">Input group</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/forms/layout/">Layout</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/forms/validation/">Validation</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../docs/4.3/components/alerts/">
+        <div>Components</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../docs/4.3/components/alerts/">Alerts</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/components/badge/">Badge</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/components/breadcrumb/">Breadcrumb</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/components/buttons/">Buttons</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/components/button-group/">Button group</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/components/card/">Card</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/components/carousel/">Carousel</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/components/close-button/">Close button</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/components/collapse/">Collapse</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/components/dropdowns/">Dropdowns</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/components/icons/">Icons</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/components/list-group/">List group</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/components/modal/">Modal</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/components/navs/">Navs</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/components/navbar/">Navbar</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/components/pagination/">Pagination</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/components/popovers/">Popovers</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/components/progress/">Progress</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/components/scrollspy/">Scrollspy</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/components/spinners/">Spinners</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/components/toasts/">Toasts</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/components/tooltips/">Tooltips</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../docs/4.3/helpers/clearfix/">
+        <div>Helpers</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../docs/4.3/helpers/clearfix/">Clearfix</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/helpers/colored-links/">Colored links</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/helpers/embed/">Embed</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/helpers/position/">Position</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/helpers/screen-readers/">Screen readers</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/helpers/stretched-link/">Stretched link</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/helpers/text-truncation/">Text truncation</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../docs/4.3/utilities/api/">
+        <div>Utilities</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../docs/4.3/utilities/api/">API</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/utilities/borders/">Borders</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/utilities/colors/">Colors</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/utilities/display/">Display</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/utilities/flex/">Flex</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/utilities/float/">Float</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/utilities/overflow/">Overflow</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/utilities/position/">Position</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/utilities/shadows/">Shadows</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/utilities/sizing/">Sizing</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/utilities/spacing/">Spacing</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/utilities/text/">Text</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/utilities/vertical-align/">Vertical align</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/utilities/visibility/">Visibility</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../docs/4.3/extend/approach/">
+        <div>Extend</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../docs/4.3/extend/approach/">Approach</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/extend/icons/">Icons</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../docs/4.3/about/overview/">
+        <div>About</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../docs/4.3/about/overview/">Overview</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/about/team/">Team</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/about/brand/">Brand</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/about/license/">License</a>
+          </li>
+          <li>
+            <a href="../../../docs/4.3/about/translations/">Translations</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="my-3 mx-4 border-top"></li>
+    <li class="bd-sidenav-group pl-3">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../docs/4.3/migration/">
+        Migration
+      </a>
+    </li>
+  </ul>
+</nav>
+
+        </div>
+
+        <main class="col-md-9 py-md-3 pl-md-5 bd-content" role="main">
+          <h1 class="bd-title" id="content">Migrating to v5</h1>
+          <p class="bd-lead">Track and review changes to the Bootstrap source files, documentation, and components to help you migrate from v4 to v5.</p>
+
+
+          
+
+          
+            <strong class="d-block h3 mt-5 mb-3">On this page</strong>
+            <nav class="bd-toc mb-5" aria-label="Secondary navigation">
+              <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#browser-support">Browser support</a></li>
+<li><a href="#sass">Sass</a></li>
+<li><a href="#javascript">JavaScript</a></li>
+<li><a href="#grid-and-layout">Grid and layout</a></li>
+<li><a href="#content-reboot-etc">Content, Reboot, etc</a></li>
+<li><a href="#forms">Forms</a></li>
+<li><a href="#components">Components</a>
+<ul>
+<li><a href="#alerts">Alerts</a></li>
+<li><a href="#badges">Badges</a></li>
+<li><a href="#cards">Cards</a></li>
+<li><a href="#jumbotron">Jumbotron</a></li>
+<li><a href="#navbars">Navbars</a></li>
+<li><a href="#pagination">Pagination</a></li>
+<li><a href="#popovers">Popovers</a></li>
+<li><a href="#tooltips">Tooltips</a></li>
+</ul></li>
+<li><a href="#accessibility">Accessibility</a></li>
+<li><a href="#utilities">Utilities</a></li>
+<li><a href="#docs">Docs</a></li>
+<li><a href="#build-tools">Build tools</a></li>
+</ul></li>
+</ul>
+</nav>
+            </nav>
+          
+
+          
+
+<h2 id="browser-support">Browser support</h2>
+
+<p>See the browser and devices page for details on what is currently supported in Bootstrap 5. Since v4, here&rsquo;s what&rsquo;s changed to our browser support:</p>
+
+<ul>
+<li>Dropped support for Internet Explorer NN</li>
+<li>Dropped support for Firefox NN - MM</li>
+<li>Dropped support for Safari NN</li>
+<li>Dropped support for iOS Safari NN</li>
+<li>Dropped support for Chrome NN</li>
+<li>Dropped support for Android NN</li>
+</ul>
+
+<h2 id="sass">Sass</h2>
+
+<p>Changes to our source Sass files and compiled CSS.</p>
+
+<ul>
+<li>Removed <code>hover</code>, <code>hover-focus</code>, <code>plain-hover-focus</code>, and <code>hover-focus-active</code> mixins. Use regular CSS syntax for these moving forward. <a href="https://github.com/twbs/bootstrap/pull/28267">See #28267</a>.</li>
+<li>Remove previously deprecated mixins
+
+<ul>
+<li><code>float()</code></li>
+<li><code>form-control-mixin()</code></li>
+<li><code>nav-divider()</code></li>
+<li><code>retina-img()</code></li>
+<li><code>text-hide()</code> (also dropped the associated utility class, <code>.text-hide</code>)</li>
+<li><code>visibility()</code></li>
+</ul></li>
+<li><strong>Todo:</strong> New variables?</li>
+<li><strong>Todo:</strong> Rearrange forms source files (under <code>scss/forms/</code>)</li>
+<li><strong>Todo:</strong> Rearrange grid source files (under <code>scss/grid/</code>)</li>
+<li>Removed print styles and <code>$enable-print-styles</code> variable. Print display classes, however, have remained intact. <a href="https://github.com/twbs/bootstrap/pull/28339">See #28339</a>.</li>
+<li>Dropped <code>color()</code>, <code>theme-color()</code> &amp; <code>gray()</code> functions in favor of variables. <a href="https://github.com/twbs/bootstrap/pull/29083">See #29083</a></li>
+<li>The <code>theme-color-level()</code> function is renamed to <code>color-level()</code> and now accepts any color you want instead of only <code>$theme-color</code> colors. <a href="https://github.com/twbs/bootstrap/pull/29083">See #29083</a></li>
+<li>Line heights are dropped from several components to simplify our codebase. The <code>button-size()</code> and <code>pagination-size()</code> do not accept line height parameters anymore. <a href="https://github.com/twbs/bootstrap/pull/29271">See #29271</a></li>
+<li>The <code>button-variant()</code> mixin now accepts 3 optional color parameters, for each button state, to override the color provided by <code>color-yiq()</code>. By default, these parameters will find which color provides more contrast against the button state&rsquo;s background color with <code>color-yiq()</code>.</li>
+<li>The <code>button-outline-variant()</code> mixin now accepts an additional argument, <code>$active-color</code>, for setting the button&rsquo;s active state text color. By default, this parameter will find which color provides more contrast against the button&rsquo;s active background color with <code>color-yiq()</code>.</li>
+</ul>
+
+<h2 id="javascript">JavaScript</h2>
+
+<p>Changes to our source and compiled JavaScript files.</p>
+
+<ul>
+<li>Dropped jQuery dependency and rewrote plugins to be in regular JavaScript.</li>
+<li>Removed underscore from public static methods like <code>_getInstance()</code> → <code>getInstance()</code>.</li>
+</ul>
+
+<h2 id="grid-and-layout">Grid and layout</h2>
+
+<p>Changes to any layout tools and our grid system.</p>
+
+<ul>
+<li>Dropped <code>.media</code> component as it can be built with utility classes. <a href="https://github.com/twbs/bootstrap/pull/28265">See #28265</a>.</li>
+<li><strong>Todo:</strong> Remove <code>position: relative</code> from grid columns</li>
+<li><strong>Todo:</strong> Integrate CSS grid into our grid system</li>
+</ul>
+
+<h2 id="content-reboot-etc">Content, Reboot, etc</h2>
+
+<p>Changes to Reboot, typography, tables, and more.</p>
+
+<ul>
+<li><a href="../../../docs/4.3/getting-started/rfs/">RFS</a> enabled for automated font size rescaling. <a href="https://github.com/twbs/bootstrap/pull/29152">See #29152</a></li>
+<li>Reset default horizontal <code>padding-left</code> on <code>&lt;ul&gt;</code> and <code>&lt;ol&gt;</code> elements from browser default <code>40px</code> to <code>2rem</code>.</li>
+<li>Simplified table styles (no more 2px border on <code>thead &gt; th</code> elements) and tightened cell padding.</li>
+<li>Dropped <code>.pre-scrollable</code> class. <a href="https://github.com/twbs/bootstrap/pull/29135">See #29135</a></li>
+<li><code>.text-*</code> utilities do not add hover and focus states to links anymore. <code>.link-*</code> helper classes can be used instead. <a href="https://github.com/twbs/bootstrap/pull/29267">See #29267</a></li>
+</ul>
+
+<h2 id="forms">Forms</h2>
+
+<ul>
+<li>Rearranged form documentation under its own top-level section.
+
+<ul>
+<li>Split out old Forms page into several subpages</li>
+<li>Moved input groups docs under new Forms section</li>
+</ul></li>
+<li>Rearranged source Sass files under <code>scss/forms/</code>, including moving over input group styles.</li>
+<li>Combined native and custom checkboxes and radios into single <code>.form-check</code> class.
+
+<ul>
+<li>New checks support sizing via <code>em</code>/<code>font-size</code> or explicit modifier classes now.</li>
+<li>New checks now appear larger by default for improved usability.</li>
+<li>Dropped <code>.custom-control</code> and associated classes.</li>
+<li>Renamed most <code>$custom-control</code> variables to <code>$form-control</code> ones.</li>
+</ul></li>
+<li>Combined native and custom selects into <code>.form-select</code>.
+
+<ul>
+<li>Dropped <code>.custom-select</code> and associated classes.</li>
+<li>Renamed most <code>$custom-select</code> variables to <code>$form-select</code> ones.</li>
+</ul></li>
+<li>Updated file input component with same overall design, but improved HTML.
+
+<ul>
+<li>Refactored <code>.form-file</code> markup to resolve some visual bugs while allowing translation and button text changes via HTML instead of CSS.</li>
+<li>Dropped native <code>.form-control-file</code> and <code>.form-control-range</code> components entirely.</li>
+<li>Renamed <code>.custom-file</code> to <code>.form-file</code> (including variables).</li>
+<li>Added support for <code>:focus</code> and <code>:disabled</code> styles.</li>
+</ul></li>
+<li>Renamed <code>.custom-range</code> to <code>.form-range</code> (including variables).</li>
+<li>Dropped <code>.form-group</code> for margin utilities (we&rsquo;ve replaced our docs examples with <code>.mb-3</code>).</li>
+<li>Dropped support for <code>.form-control-plaintext</code> inside <code>.input-group</code>s.</li>
+</ul>
+
+<h2 id="components">Components</h2>
+
+<h3 id="alerts">Alerts</h3>
+
+<ul>
+<li><strong>Todo:</strong> Remove auto-darkening of <code>&lt;hr&gt;</code> elements in <code>.alert-*</code> class variants. <code>&lt;hr&gt;</code>s use <code>rgba()</code> for their color, so these should naturally blend anyway.</li>
+</ul>
+
+<h3 id="badges">Badges</h3>
+
+<p>Badges were overhauled to better differentiate themselves from buttons and to better utilize utility classes.</p>
+
+<ul>
+<li><strong>Todo:</strong> Removed and replaced <code>.badge</code> modifier classes with background utility classes (e.g., use <code>.bg-primary</code> instead of <code>.badge-primary</code>)</li>
+<li><strong>Todo:</strong> Removed <code>.badge-pill</code> for the <code>.rounded-pill</code> utility class</li>
+<li><strong>Todo:</strong> Removed badge&rsquo;s hover and focus styles for <code>a.badge</code> and <code>button.badge</code>.</li>
+</ul>
+
+<h3 id="cards">Cards</h3>
+
+<ul>
+<li>Removed the card columns in favor of a Masonry grid <a href="https://github.com/twbs/bootstrap/pull/28922">See #28922</a>.</li>
+</ul>
+
+<h3 id="jumbotron">Jumbotron</h3>
+
+<ul>
+<li>The jumbotron component is removed in favor of utility classes like <code>.bg-light</code> for the background color and <code>.p-*</code> classes to control padding.</li>
+</ul>
+
+<h3 id="navbars">Navbars</h3>
+
+<ul>
+<li>All navbars now require a container within. This drastically simplifies spacing requirements and removes the need for extensive CSS overrides we added for responsive containers in v4.</li>
+</ul>
+
+<h3 id="pagination">Pagination</h3>
+
+<ul>
+<li>Pagination links now have customizable <code>margin-left</code> that are dynamically rounded on all corners when separated from one another.</li>
+</ul>
+
+<h3 id="popovers">Popovers</h3>
+
+<ul>
+<li>Renamed <code>.arrow</code> to <code>.popover-arrow</code></li>
+</ul>
+
+<h3 id="tooltips">Tooltips</h3>
+
+<ul>
+<li>Renamed <code>.arrow</code> to <code>.tooltip-arrow</code></li>
+</ul>
+
+<h2 id="accessibility">Accessibility</h2>
+
+<ul>
+<li><code>.sr-only-focusable</code> does not require <code>.sr-only</code> anymore. <a href="https://github.com/twbs/bootstrap/pull/28720">See #28720</a>.</li>
+</ul>
+
+<h2 id="utilities">Utilities</h2>
+
+<ul>
+<li>Renamed <code>.text-monospace</code> to <code>.font-monospace</code></li>
+<li>Decreased the number of responsive order utilities per breakpoint. The highest order utility with a number now is <code>.order-5</code> instead of <code>.order-12</code>. <a href="https://github.com/twbs/bootstrap/pull/28874">See #28874</a>.</li>
+<li>New <code>line-height</code> utilities: <code>.lh-1</code>, <code>.lh-sm</code>, <code>.lh-base</code> and <code>.lh-lg</code>. See <a href="../../../docs/4.3/utilities/text/#line-height">here</a>.</li>
+<li>Added <code>.bg-body</code> for quickly setting the <code>&lt;body&gt;</code>&rsquo;s background to additional elements.</li>
+<li><strong>Todo:</strong> Drop <code>.text-hide</code> as it&rsquo;s an antiquated method for hiding text that shouldn&rsquo;t be used anymore</li>
+<li><strong>Todo:</strong> Split utilities into property-value utility classes and helpers</li>
+</ul>
+
+<h2 id="docs">Docs</h2>
+
+<ul>
+<li>Removed &ldquo;Wall of browser bugs&rdquo; page because it has become obsolete</li>
+</ul>
+
+<h2 id="build-tools">Build tools</h2>
+
+        </main>
+      </div>
+    </div>
+
+    <footer>
+</footer>
+
+    <script src="../../../docs/4.3/dist/js/bootstrap.bundle.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+
+<script src="../../../docs/4.3/assets/js/docs.js"></script>
+
+  </body>
+</html>

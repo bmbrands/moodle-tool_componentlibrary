@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Create responsive video or slideshow embeds based on the width of the parent by creating an intrinsic ratio that scales on any device.">
+<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+<meta name="generator" content="Hugo 0.59.1">
+
+<meta name="docsearch:language" content="en">
+<meta name="docsearch:version" content="4.3">
+
+<title>Embeds · Bootstrap</title>
+
+<link rel="canonical" href="https://getbootstrap.com/docs/4.3/helpers/embed/">
+
+
+
+<!-- Bootstrap core CSS -->
+<a href="../../../../../helpers/moodlecss.php" id="moodlephp">
+	<script type="text/javascript" src="../../../../../helpers/moodleresources.js"></script>
+
+<!-- Documentation extras -->
+<link href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="../../../../docs/4.3/assets/css/docs.css">
+
+<!-- Favicons -->
+<link rel="apple-touch-icon" href="../../../../docs/4.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="../../../../docs/4.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../../../../docs/4.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="../../../../docs/4.3/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="../../../../docs/4.3/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+<link rel="icon" href="../../../../docs/4.3/assets/img/favicons/favicon.ico">
+<meta name="msapplication-config" content="/docs/4.3/assets/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#563d7c">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@getbootstrap">
+<meta name="twitter:creator" content="@getbootstrap">
+<meta name="twitter:title" content="Embeds">
+<meta name="twitter:description" content="Create responsive video or slideshow embeds based on the width of the parent by creating an intrinsic ratio that scales on any device.">
+<meta name="twitter:image" content="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-social.png">
+
+<!-- Facebook -->
+<meta property="og:url" content="https://getbootstrap.com/docs/4.3/helpers/embed/">
+<meta property="og:title" content="Embeds">
+<meta property="og:description" content="Create responsive video or slideshow embeds based on the width of the parent by creating an intrinsic ratio that scales on any device.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="http://getbootstrap.com/docs/4.3/assets/brand/bootstrap-social.png">
+<meta property="og:image:secure_url" content="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-social.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-146052-10', 'getbootstrap.com');
+  ga('set', 'anonymizeIp', true);
+  ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+  </head>
+  <body>
+    <a class="skippy sr-only" href="#content">
+  <span class="skippy-text">Skip to main content</span>
+</a>
+
+
+    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar px-0">
+  <div class="container-fluid flex-wrap flex-md-nowrap py-0 px-3">
+    <a class="navbar-brand mr-0 mr-md-2" href="../../../../" aria-label="Bootstrap">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="d-block" viewBox="0 0 64 64" role="img"><title>Bootstrap</title><path fill="currentColor" fill-rule="evenodd" d="M16 0h32c8.837 0 16 7.163 16 16v32c0 8.837-7.163 16-16 16H16C7.163 64 0 56.837 0 48V16C0 7.163 7.163 0 16 0zm18.14 49c7.22 0 11.555-3.633 11.555-9.586 0-4.406-3.047-7.664-7.617-8.133v-.398c3.328-.563 5.93-3.727 5.93-7.266 0-5.203-3.82-8.437-10.172-8.437H20.242V49h13.899zm-8.648-29.367h7.125c3.89 0 6.164 1.828 6.164 4.945 0 3.211-2.414 4.922-7.054 4.922h-6.235v-9.867zm0 24.914V33.648h7.29c4.945 0 7.546 1.852 7.546 5.391 0 3.586-2.508 5.508-7.242 5.508h-7.594z"/></svg>
+
+    </a>
+
+    <div class="navbar-nav-scroll order-3 order-md-0 d-flex justify-content-center justify-content-md-start">
+      <ul class="navbar-nav bd-navbar-nav flex-row">
+        <li class="nav-item">
+          <a class="nav-link" href="../../../../" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Bootstrap');">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="../../../../docs/4.3/getting-started/introduction/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Docs');">Docs</a>
+        </li>
+        
+      </ul>
+    </div>
+
+    <ul class="navbar-nav ml-sm-auto">
+
+    </ul>
+
+  </div>
+</header>
+
+    
+
+
+    <div class="containe-fluid py-4 bg-white">
+      <div class="row flex-nowrap">
+        <div class="col-md-3 bd-sidebar">
+          <nav class="collapse bd-links" id="bd-docs-nav" aria-label="Main navigation"><ul class="list-unstyled">
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/moodle-components/introduction/">
+        <div>Moodle Components</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/moodle-components/introduction/">Introduction</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/moodle-components/search/">Search</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/moodle-components/test/">Test</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/layout/overview/">
+        <div>Layout</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/layout/overview/">Overview</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/layout/grid/">Grid</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/layout/utilities-for-layout/">Utilities for layout</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/content/reboot/">
+        <div>Content</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/content/reboot/">Reboot</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/content/typography/">Typography</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/content/images/">Images</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/content/tables/">Tables</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/content/figures/">Figures</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/forms/overview/">
+        <div>Forms</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/forms/overview/">Overview</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/forms/form-control/">Form control</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/forms/select/">Select</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/forms/checks/">Checks</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/forms/file/">File</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/forms/range/">Range</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/forms/input-group/">Input group</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/forms/layout/">Layout</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/forms/validation/">Validation</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/components/alerts/">
+        <div>Components</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/components/alerts/">Alerts</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/badge/">Badge</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/breadcrumb/">Breadcrumb</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/buttons/">Buttons</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/button-group/">Button group</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/card/">Card</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/carousel/">Carousel</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/close-button/">Close button</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/collapse/">Collapse</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/dropdowns/">Dropdowns</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/icons/">Icons</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/list-group/">List group</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/modal/">Modal</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/navs/">Navs</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/navbar/">Navbar</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/pagination/">Pagination</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/popovers/">Popovers</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/progress/">Progress</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/scrollspy/">Scrollspy</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/spinners/">Spinners</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/toasts/">Toasts</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/tooltips/">Tooltips</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 active js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/helpers/clearfix/">
+        <div>Helpers</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/helpers/clearfix/">Clearfix</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/helpers/colored-links/">Colored links</a>
+          </li>
+          <li class="active bd-sidenav-active">
+            <a href="../../../../docs/4.3/helpers/embed/">Embed</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/helpers/position/">Position</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/helpers/screen-readers/">Screen readers</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/helpers/stretched-link/">Stretched link</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/helpers/text-truncation/">Text truncation</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/utilities/api/">
+        <div>Utilities</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/utilities/api/">API</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/borders/">Borders</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/colors/">Colors</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/display/">Display</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/flex/">Flex</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/float/">Float</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/overflow/">Overflow</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/position/">Position</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/shadows/">Shadows</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/sizing/">Sizing</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/spacing/">Spacing</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/text/">Text</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/vertical-align/">Vertical align</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/visibility/">Visibility</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/extend/approach/">
+        <div>Extend</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/extend/approach/">Approach</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/extend/icons/">Icons</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/about/overview/">
+        <div>About</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/about/overview/">Overview</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/about/team/">Team</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/about/brand/">Brand</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/about/license/">License</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/about/translations/">Translations</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="my-3 mx-4 border-top"></li>
+    <li class="bd-sidenav-group pl-3">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/migration/">
+        Migration
+      </a>
+    </li>
+  </ul>
+</nav>
+
+        </div>
+
+        <main class="col-md-9 py-md-3 pl-md-5 bd-content" role="main">
+          <h1 class="bd-title" id="content">Embeds</h1>
+          <p class="bd-lead">Create responsive video or slideshow embeds based on the width of the parent by creating an intrinsic ratio that scales on any device.</p>
+
+
+          
+
+          
+            <strong class="d-block h3 mt-5 mb-3">On this page</strong>
+            <nav class="bd-toc mb-5" aria-label="Secondary navigation">
+              <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#example">Example</a></li>
+<li><a href="#aspect-ratios">Aspect ratios</a></li>
+</ul></li>
+</ul>
+</nav>
+            </nav>
+          
+
+          
+
+<h2 id="about">About</h2>
+
+<p>Rules are directly applied to <code>&lt;iframe&gt;</code>, <code>&lt;embed&gt;</code>, <code>&lt;video&gt;</code>, and <code>&lt;object&gt;</code> elements; optionally use an explicit descendant class <code>.embed-responsive-item</code> when you want to match the styling for other attributes.</p>
+
+<p><strong>Pro-Tip!</strong> You don&rsquo;t need to include <code>frameborder=&quot;0&quot;</code> in your <code>&lt;iframe&gt;</code>s as we override that for you.</p>
+
+<h2 id="example">Example</h2>
+
+<p>Wrap any embed like an <code>&lt;iframe&gt;</code> in a parent element with <code>.embed-responsive</code> and an aspect ratio. The <code>.embed-responsive-item</code> isn&rsquo;t strictly required, but we encourage it.</p>
+
+<div class="bd-example">
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+</div>
+</div><div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;embed-responsive embed-responsive-16by9&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;embed-responsive-item&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://www.youtube.com/embed/zpOULjyy-n8?rel=0&#34;</span> <span class="na">allowfullscreen</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre></div>
+
+<h2 id="aspect-ratios">Aspect ratios</h2>
+
+<p>Aspect ratios can be customized with modifier classes. By default the following ratio classes are provided:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- 21:9 aspect ratio --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;embed-responsive embed-responsive-21by9&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;embed-responsive-item&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;...&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- 16:9 aspect ratio --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;embed-responsive embed-responsive-16by9&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;embed-responsive-item&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;...&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- 4:3 aspect ratio --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;embed-responsive embed-responsive-4by3&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;embed-responsive-item&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;...&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- 1:1 aspect ratio --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;embed-responsive embed-responsive-1by1&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;embed-responsive-item&#34;</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;...&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre></div>
+
+<p>Within <code>_variables.scss</code>, you can change the aspect ratios you want to use. Here&rsquo;s an example of the <code>$embed-responsive-aspect-ratios</code> map:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nv">$embed-responsive-aspect-ratios</span><span class="o">:</span> <span class="p">(</span>
+  <span class="s2">&#34;21by9&#34;</span><span class="o">:</span> <span class="p">(</span>
+    <span class="n">x</span><span class="o">:</span> <span class="mi">21</span><span class="o">,</span>
+    <span class="n">y</span><span class="o">:</span> <span class="mi">9</span>
+  <span class="p">)</span><span class="o">,</span>
+  <span class="s2">&#34;16by9&#34;</span><span class="o">:</span> <span class="p">(</span>
+    <span class="n">x</span><span class="o">:</span> <span class="mi">16</span><span class="o">,</span>
+    <span class="n">y</span><span class="o">:</span> <span class="mi">9</span>
+  <span class="p">)</span><span class="o">,</span>
+  <span class="s2">&#34;4by3&#34;</span><span class="o">:</span> <span class="p">(</span>
+    <span class="n">x</span><span class="o">:</span> <span class="mi">4</span><span class="o">,</span>
+    <span class="n">y</span><span class="o">:</span> <span class="mi">3</span>
+  <span class="p">)</span><span class="o">,</span>
+  <span class="s2">&#34;1by1&#34;</span><span class="o">:</span> <span class="p">(</span>
+    <span class="n">x</span><span class="o">:</span> <span class="mi">1</span><span class="o">,</span>
+    <span class="n">y</span><span class="o">:</span> <span class="mi">1</span>
+  <span class="p">)</span>
+<span class="p">);</span></code></pre></div>
+
+        </main>
+      </div>
+    </div>
+
+    <footer>
+</footer>
+
+    <script src="../../../../docs/4.3/dist/js/bootstrap.bundle.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+
+<script src="../../../../docs/4.3/assets/js/docs.js"></script>
+
+  </body>
+</html>

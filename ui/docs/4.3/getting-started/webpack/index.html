@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Learn how to include Bootstrap in your project using Webpack or other bundlers.">
+<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+<meta name="generator" content="Hugo 0.59.1">
+
+<meta name="docsearch:language" content="en">
+<meta name="docsearch:version" content="4.3">
+
+<title>Webpack and bundlers · Bootstrap</title>
+
+<link rel="canonical" href="https://getbootstrap.com/docs/4.3/getting-started/webpack/">
+
+
+
+<!-- Bootstrap core CSS -->
+<a href="../../../../../helpers/moodlecss.php" id="moodlephp">
+	<script type="text/javascript" src="../../../../../helpers/moodleresources.js"></script>
+
+<!-- Documentation extras -->
+<link href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="../../../../docs/4.3/assets/css/docs.css">
+
+<!-- Favicons -->
+<link rel="apple-touch-icon" href="../../../../docs/4.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="../../../../docs/4.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../../../../docs/4.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="../../../../docs/4.3/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="../../../../docs/4.3/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+<link rel="icon" href="../../../../docs/4.3/assets/img/favicons/favicon.ico">
+<meta name="msapplication-config" content="/docs/4.3/assets/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#563d7c">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@getbootstrap">
+<meta name="twitter:creator" content="@getbootstrap">
+<meta name="twitter:title" content="Webpack and bundlers">
+<meta name="twitter:description" content="Learn how to include Bootstrap in your project using Webpack or other bundlers.">
+<meta name="twitter:image" content="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-social.png">
+
+<!-- Facebook -->
+<meta property="og:url" content="https://getbootstrap.com/docs/4.3/getting-started/webpack/">
+<meta property="og:title" content="Webpack and bundlers">
+<meta property="og:description" content="Learn how to include Bootstrap in your project using Webpack or other bundlers.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="http://getbootstrap.com/docs/4.3/assets/brand/bootstrap-social.png">
+<meta property="og:image:secure_url" content="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-social.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-146052-10', 'getbootstrap.com');
+  ga('set', 'anonymizeIp', true);
+  ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+  </head>
+  <body>
+    <a class="skippy sr-only" href="#content">
+  <span class="skippy-text">Skip to main content</span>
+</a>
+
+
+    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar px-0">
+  <div class="container-fluid flex-wrap flex-md-nowrap py-0 px-3">
+    <a class="navbar-brand mr-0 mr-md-2" href="../../../../" aria-label="Bootstrap">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="d-block" viewBox="0 0 64 64" role="img"><title>Bootstrap</title><path fill="currentColor" fill-rule="evenodd" d="M16 0h32c8.837 0 16 7.163 16 16v32c0 8.837-7.163 16-16 16H16C7.163 64 0 56.837 0 48V16C0 7.163 7.163 0 16 0zm18.14 49c7.22 0 11.555-3.633 11.555-9.586 0-4.406-3.047-7.664-7.617-8.133v-.398c3.328-.563 5.93-3.727 5.93-7.266 0-5.203-3.82-8.437-10.172-8.437H20.242V49h13.899zm-8.648-29.367h7.125c3.89 0 6.164 1.828 6.164 4.945 0 3.211-2.414 4.922-7.054 4.922h-6.235v-9.867zm0 24.914V33.648h7.29c4.945 0 7.546 1.852 7.546 5.391 0 3.586-2.508 5.508-7.242 5.508h-7.594z"/></svg>
+
+    </a>
+
+    <div class="navbar-nav-scroll order-3 order-md-0 d-flex justify-content-center justify-content-md-start">
+      <ul class="navbar-nav bd-navbar-nav flex-row">
+        <li class="nav-item">
+          <a class="nav-link" href="../../../../" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Bootstrap');">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="../../../../docs/4.3/getting-started/introduction/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Docs');">Docs</a>
+        </li>
+        
+      </ul>
+    </div>
+
+    <ul class="navbar-nav ml-sm-auto">
+
+    </ul>
+
+  </div>
+</header>
+
+    
+
+
+    <div class="containe-fluid py-4 bg-white">
+      <div class="row flex-nowrap">
+        <div class="col-md-3 bd-sidebar">
+          <nav class="collapse bd-links" id="bd-docs-nav" aria-label="Main navigation"><ul class="list-unstyled">
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/moodle-components/introduction/">
+        <div>Moodle Components</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/moodle-components/introduction/">Introduction</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/moodle-components/search/">Search</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/moodle-components/test/">Test</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/layout/overview/">
+        <div>Layout</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/layout/overview/">Overview</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/layout/grid/">Grid</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/layout/utilities-for-layout/">Utilities for layout</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/content/reboot/">
+        <div>Content</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/content/reboot/">Reboot</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/content/typography/">Typography</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/content/images/">Images</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/content/tables/">Tables</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/content/figures/">Figures</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/forms/overview/">
+        <div>Forms</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/forms/overview/">Overview</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/forms/form-control/">Form control</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/forms/select/">Select</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/forms/checks/">Checks</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/forms/file/">File</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/forms/range/">Range</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/forms/input-group/">Input group</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/forms/layout/">Layout</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/forms/validation/">Validation</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/components/alerts/">
+        <div>Components</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/components/alerts/">Alerts</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/badge/">Badge</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/breadcrumb/">Breadcrumb</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/buttons/">Buttons</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/button-group/">Button group</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/card/">Card</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/carousel/">Carousel</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/close-button/">Close button</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/collapse/">Collapse</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/dropdowns/">Dropdowns</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/icons/">Icons</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/list-group/">List group</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/modal/">Modal</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/navs/">Navs</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/navbar/">Navbar</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/pagination/">Pagination</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/popovers/">Popovers</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/progress/">Progress</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/scrollspy/">Scrollspy</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/spinners/">Spinners</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/toasts/">Toasts</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/components/tooltips/">Tooltips</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/helpers/clearfix/">
+        <div>Helpers</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/helpers/clearfix/">Clearfix</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/helpers/colored-links/">Colored links</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/helpers/embed/">Embed</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/helpers/position/">Position</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/helpers/screen-readers/">Screen readers</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/helpers/stretched-link/">Stretched link</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/helpers/text-truncation/">Text truncation</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/utilities/api/">
+        <div>Utilities</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/utilities/api/">API</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/borders/">Borders</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/colors/">Colors</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/display/">Display</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/flex/">Flex</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/float/">Float</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/overflow/">Overflow</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/position/">Position</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/shadows/">Shadows</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/sizing/">Sizing</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/spacing/">Spacing</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/text/">Text</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/vertical-align/">Vertical align</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/utilities/visibility/">Visibility</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/extend/approach/">
+        <div>Extend</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/extend/approach/">Approach</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/extend/icons/">Icons</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="bd-sidenav-group my-1 js-sidenav-group has-children">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/about/overview/">
+        <div>About</div>
+      </a>
+      <ul class="nav bd-sidenav flex-column mb-2">
+          <li>
+            <a href="../../../../docs/4.3/about/overview/">Overview</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/about/team/">Team</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/about/brand/">Brand</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/about/license/">License</a>
+          </li>
+          <li>
+            <a href="../../../../docs/4.3/about/translations/">Translations</a>
+          </li>
+      </ul>
+    </li>
+
+    <li class="my-3 mx-4 border-top"></li>
+    <li class="bd-sidenav-group pl-3">
+      <a class="d-inline-flex align-items-center bd-sidenav-group-link" href="../../../../docs/4.3/migration/">
+        Migration
+      </a>
+    </li>
+  </ul>
+</nav>
+
+        </div>
+
+        <main class="col-md-9 py-md-3 pl-md-5 bd-content" role="main">
+          <h1 class="bd-title" id="content">Webpack and bundlers</h1>
+          <p class="bd-lead">Learn how to include Bootstrap in your project using Webpack or other bundlers.</p>
+
+
+          
+
+          
+            <strong class="d-block h3 mt-5 mb-3">On this page</strong>
+            <nav class="bd-toc mb-5" aria-label="Secondary navigation">
+              <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#installing-bootstrap">Installing Bootstrap</a></li>
+<li><a href="#importing-javascript">Importing JavaScript</a></li>
+<li><a href="#importing-styles">Importing Styles</a>
+<ul>
+<li><a href="#importing-precompiled-sass">Importing Precompiled Sass</a></li>
+<li><a href="#importing-compiled-css">Importing Compiled CSS</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+            </nav>
+          
+
+          
+
+<h2 id="installing-bootstrap">Installing Bootstrap</h2>
+
+<p><a href="../../../../docs/4.3/getting-started/download/#npm">Install bootstrap</a> as a Node.js module using npm.</p>
+
+<h2 id="importing-javascript">Importing JavaScript</h2>
+
+<p>Import <a href="../../../../docs/4.3/getting-started/javascript/">Bootstrap&rsquo;s JavaScript</a> by adding this line to your app&rsquo;s entry point (usually <code>index.js</code> or <code>app.js</code>):</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// You can specify which plugins you need
+</span><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Tooltip</span><span class="p">,</span> <span class="nx">Toast</span><span class="p">,</span> <span class="nx">Popover</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;bootstrap&#39;</span><span class="p">;</span>
+</code></pre></div>
+
+<p>Alternatively, if you only need just a few of our plugins, you may <strong>import plugins individually</strong> as needed:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">Alert</span> <span class="nx">from</span> <span class="s1">&#39;bootstrap/js/dist/alert&#39;</span><span class="p">;</span>
+<span class="p">...</span>
+</code></pre></div>
+
+<p>Bootstrap depends on <a href="https://popper.js.org/">Popper</a>, which is specified in the <code>peerDependencies</code> property.
+This means that you will have to make sure to add both of them to your <code>package.json</code> using <code>npm install popper.js</code>.</p>
+
+<h2 id="importing-styles">Importing Styles</h2>
+
+<h3 id="importing-precompiled-sass">Importing Precompiled Sass</h3>
+
+<p>To enjoy the full potential of Bootstrap and customize it to your needs, use the source files as a part of your project&rsquo;s bundling process.</p>
+
+<p>First, create your own <code>_custom.scss</code> and use it to override the <a href="../../../../docs/4.3/getting-started/theming/">built-in custom variables</a>. Then, use your main Sass file to import your custom variables, followed by Bootstrap:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="k">@import</span> <span class="s2">&#34;custom&#34;</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">&#34;~bootstrap/scss/bootstrap&#34;</span><span class="p">;</span></code></pre></div>
+
+<p>For Bootstrap to compile, make sure you install and use the required loaders: <a href="https://github.com/webpack-contrib/sass-loader">sass-loader</a>, <a href="https://github.com/postcss/postcss-loader">postcss-loader</a> with <a href="https://github.com/postcss/autoprefixer#webpack">Autoprefixer</a>. With minimal setup, your webpack config should include this rule or similar:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="p">...</span>
+<span class="p">{</span>
+  <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.(scss)$/</span><span class="p">,</span>
+  <span class="nx">use</span><span class="o">:</span> <span class="p">[{</span>
+    <span class="nx">loader</span><span class="o">:</span> <span class="s1">&#39;style-loader&#39;</span><span class="p">,</span> <span class="c1">// inject CSS to page
+</span><span class="c1"></span>  <span class="p">},</span> <span class="p">{</span>
+    <span class="nx">loader</span><span class="o">:</span> <span class="s1">&#39;css-loader&#39;</span><span class="p">,</span> <span class="c1">// translates CSS into CommonJS modules
+</span><span class="c1"></span>  <span class="p">},</span> <span class="p">{</span>
+    <span class="nx">loader</span><span class="o">:</span> <span class="s1">&#39;postcss-loader&#39;</span><span class="p">,</span> <span class="c1">// Run postcss actions
+</span><span class="c1"></span>    <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">plugins</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="c1">// postcss plugins, can be exported to postcss.config.js
+</span><span class="c1"></span>        <span class="k">return</span> <span class="p">[</span>
+          <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;autoprefixer&#39;</span><span class="p">)</span>
+        <span class="p">];</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="p">{</span>
+    <span class="nx">loader</span><span class="o">:</span> <span class="s1">&#39;sass-loader&#39;</span> <span class="c1">// compiles Sass to CSS
+</span><span class="c1"></span>  <span class="p">}]</span>
+<span class="p">},</span>
+<span class="p">...</span>
+</code></pre></div>
+
+<h3 id="importing-compiled-css">Importing Compiled CSS</h3>
+
+<p>Alternatively, you may use Bootstrap&rsquo;s ready-to-use CSS by simply adding this line to your project&rsquo;s entry point:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="s1">&#39;bootstrap/dist/css/bootstrap.min.css&#39;</span><span class="p">;</span>
+</code></pre></div>
+
+<p>In this case you may use your existing rule for <code>css</code> without any special modifications to webpack config, except you don&rsquo;t need <code>sass-loader</code> just <a href="https://github.com/webpack-contrib/style-loader">style-loader</a> and <a href="https://github.com/webpack-contrib/css-loader">css-loader</a>.</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="p">...</span>
+<span class="nx">module</span><span class="o">:</span> <span class="p">{</span>
+  <span class="nx">rules</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.css$/</span><span class="p">,</span>
+      <span class="nx">use</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;style-loader&#39;</span><span class="p">,</span> <span class="s1">&#39;css-loader&#39;</span><span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+<span class="p">...</span>
+</code></pre></div>
+
+        </main>
+      </div>
+    </div>
+
+    <footer>
+</footer>
+
+    <script src="../../../../docs/4.3/dist/js/bootstrap.bundle.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+
+<script src="../../../../docs/4.3/assets/js/docs.js"></script>
+
+  </body>
+</html>
