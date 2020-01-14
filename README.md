@@ -55,4 +55,4 @@ This file now include a reference to a helper JS file:
 
 This JS file will pull the CSS of your current theme and include it on the page. Please note the CSS is cached in your local browser storage after first load to improve loading speed.
 
-Some of the Bootstrap docs pages have been altered removing advertisements and pages not relevant to Moodle.
+Some of the Bootstrap docs pages have been altered removing advertisements and pages not relevant to

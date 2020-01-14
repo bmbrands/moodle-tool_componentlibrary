@@ -1,22 +1,21 @@
-# - title: Getting started
-#   pages:
-#     - title: Introduction
-#     - title: Download
-#     - title: Contents
-#     - title: Browsers & devices
-#     - title: JavaScript
-#     - title: Theming
-#     - title: Build tools
-#     # - title: Best practices # TODO: Write this content
-#     - title: Webpack
-#     - title: Accessibility
-#     - title: RFS
-
 - title: Moodle Components
   pages:
     - title: Introduction
     - title: Search
-    - title: Test
+
+- title: Getting started
+  pages:
+    - title: Introduction
+    - title: Download
+    - title: Contents
+    - title: Browsers & devices
+    - title: JavaScript
+    - title: Theming
+    - title: Build tools
+    # - title: Best practices # TODO: Write this content
+    - title: Webpack
+    - title: Accessibility
+    - title: RFS
 
 - title: Layout
   pages:
@@ -56,9 +55,6 @@
     - title: Close button
     - title: Collapse
     - title: Dropdowns
-    - title: Icons
-    # - title: Forms
-    # - title: Input group
     - title: List group
     - title: Modal
     - title: Navs

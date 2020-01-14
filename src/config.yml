@@ -1,6 +1,6 @@
 languageCode:           "en"
 title:                  "Bootstrap"
-baseURL:                "https://getbootstrap.com"
+baseURL:                "/"
 enableInlineShortcodes: true
 
 pygmentsUseClasses:     true

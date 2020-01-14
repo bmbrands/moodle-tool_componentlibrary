@@ -9,8 +9,8 @@
     {{ partial "docs-navbar" . }}
     {{ partial "docs-subnav" . }}
 
-    <div class="containe-fluid py-4 bg-white">
-      <div class="row flex-nowrap">
+    <div class="container-fluid py-4 bg-white">
+      <div class="row flex-xl-nowrap">
         <div class="col-md-3 bd-sidebar">
           {{ partial "docs-sidebar" . }}
         </div>
@@ -18,7 +18,7 @@
         <main class="col-md-9 py-md-3 pl-md-5 bd-content" role="main">
           <h1 class="bd-title" id="content">{{ .Title | markdownify }}</h1>
           <p class="bd-lead">{{ .Page.Params.Description | markdownify }}</p>
-
+          {{ partial "ads" . }}
 
           {{ if .Page.Params.sections }}
             <div class="row my-5">
