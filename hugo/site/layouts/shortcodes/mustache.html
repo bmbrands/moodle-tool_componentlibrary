@@ -1,0 +1,25 @@
+{{- /*
+  Usage: `mustache [args]`
+
+  `args` are optional and can be one of the following:
+    id: the `div`'s id - default: ""
+    class: any extra class(es) to be added to the `div` - default ""
+    show_preview: if the preview should be output in the HTML - default: `true`
+    show_markup: if the markup should be output in the HTML - default: `true`
+*/ -}}
+
+{{- .Get "template" -}}
+
+<div data-region="displaytemplatesource">
+
+</div>
+
+<div data-region="displaytemplateexample">
+
+</div>
+
+<script>
+require(['jquery', 'tool_componentlibrary/mustache'], function($, mustache) {
+  mustache.init('{{- .Get "template" -}}');
+});
+</script>

@@ -28,6 +28,6 @@ defined('MOODLE_INTERNAL') || die;
 $temp = new admin_externalpage(
     'toolcomponentlibrary',
     get_string('pluginname', 'tool_componentlibrary'),
-    new moodle_url('/admin/tool/componentlibrary/ui/')
+    new moodle_url('/admin/tool/componentlibrary/')
 );
 $ADMIN->add('development', $temp);

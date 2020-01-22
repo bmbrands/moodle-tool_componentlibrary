@@ -1,0 +1,19 @@
+<h3>{{- .Get "template" -}}</h3>
+
+<div data-region="displaytemplatesource">
+
+</div>
+
+<div data-region="displaytemplateexample">
+
+</div>
+
+start read
+{{ readFile "/content/404.md" }}
+end read
+
+<script>
+require(['jquery', 'tool_componentlibrary/mustache'], function($, mustache) {
+  mustache.init({{- .Get "template" -}});
+});
+</script>
