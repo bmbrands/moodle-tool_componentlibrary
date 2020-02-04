@@ -2,19 +2,14 @@
 layout: docs
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
-group: moodle-components
-draft: false
+draft: true
 ---
 
 ## Component name
 
-Describe what this component is used for.
+## screenshots
 
 ## Examples
-
-Provide examples on how this component can be used and include some example code.
-
-### Example 1
 
 {{< example >}}
 <div class="myclass">
@@ -25,8 +20,4 @@ Provide examples on how this component can be used and include some example code
 
 ## Usage
 
-List the available CSS classes for this componentn
-
-### Javascript attributes
-
-List the various data-attributes linked to JavaScript behaviour for this component.
+## Javascript attributes

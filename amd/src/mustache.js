@@ -14,11 +14,11 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This module adds ajax display functions to the template library page.
+ * This is called from the hugo shortcodes
  *
- * @module     tool_templatelibrary/display
- * @package    tool_templatelibrary
- * @copyright  2015 Damyon Wiese <damyon@moodle.com>
+ * @module     tool_componentlibrary/mustache
+ * @package    tool_componentlibrary
+ * @copyright  2020 Bas Brands <bas@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 define(['jquery', 'core/ajax', 'core/log', 'core/notification', 'core/templates', 'core/config', 'core/str'],
@@ -67,13 +67,15 @@ define(['jquery', 'core/ajax', 'core/log', 'core/notification', 'core/templates'
      * @param {String} source The template source
      * @param {String} originalSource The original template source (not theme overridden)
      */
-    var templateLoaded = function(templateName, source, originalSource) {
+    var templateLoaded = function(root, templateName, source, originalSource) {
         str.get_string('templateselected', 'tool_templatelibrary', templateName).done(function(s) {
             $('[data-region="displaytemplateheader"]').text(s);
         }).fail(notification.exception);
 
         // Find the comment section marked with @template component/template.
         var docs = findDocsSection(source, templateName);
+
+        root.find('[data-region="source"]').text(source);
 
         if (docs === false) {
             // Docs was not in theme template, try original.
@@ -85,11 +87,9 @@ define(['jquery', 'core/ajax', 'core/log', 'core/notification', 'core/templates'
             source = docs;
         }
 
-        $('[data-region="displaytemplatesource"]').text(source);
+        var example = source.match(/Example context \(json\):([\s\S]*);?/);
 
-        // Now search the text for a json example.
-
-        var example = source.match(/Example context \(json\):([\s\S]*);/);
+        root.find('[data-region="config"]').text(example);
 
         var context = false;
         if (example) {
@@ -103,11 +103,11 @@ define(['jquery', 'core/ajax', 'core/log', 'core/notification', 'core/templates'
         }
         if (context) {
             templates.render(templateName, context).done(function(html, js) {
-                templates.replaceNodeContents($('[data-region="displaytemplateexample"]'), html, js);
+                templates.replaceNodeContents(root.find('[data-region="rendered"]'), html, js);
             }).fail(notification.exception);
         } else {
             str.get_string('templatehasnoexample', 'tool_templatelibrary').done(function(s) {
-                $('[data-region="displaytemplateexample"]').text(s);
+                root.find('[data-region="rendered"]').text(s);
             }).fail(notification.exception);
         }
     };
@@ -117,7 +117,7 @@ define(['jquery', 'core/ajax', 'core/log', 'core/notification', 'core/templates'
      *
      * @param {String} templateName
      */
-    var loadTemplate = function(templateName) {
+    var loadTemplate = function(root, templateName) {
         var parts = templateName.split('/');
         var component = parts.shift();
         var name = parts.join('/');
@@ -142,13 +142,14 @@ define(['jquery', 'core/ajax', 'core/log', 'core/notification', 'core/templates'
         // The arguments to the done become the values of each resolved promise.
         $.when.apply($, promises)
             .done(function(source, originalSource) {
-              templateLoaded(templateName, source, originalSource);
+              templateLoaded(root, templateName, source, originalSource);
             })
             .fail(notification.exception);
     };
 
-    var init = function(templatename) {
-        loadTemplate(templatename);
+    var init = function(root, templatename) {
+        var root = $(root);
+        loadTemplate(root, templatename);
     };
 
     // This module does not expose anything.

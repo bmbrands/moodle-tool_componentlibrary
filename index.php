@@ -26,6 +26,6 @@
 
 require_once(__DIR__ . '/../../../config.php');
 
-$firstpage = new moodle_url('/admin/tool/componentlibrary/docspage.php/docs/4.3/moodle-components/introduction');
+$firstpage = new moodle_url('/admin/tool/componentlibrary/docspage.php/moodle-3.9/getting-started/introduction/');
 
 redirect($firstpage);

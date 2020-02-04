@@ -4,6 +4,9 @@
 // Automatically style Markdown-based tables like a Bootstrap `.table`.
 //
 
+div[role="main"] {
+  width: 100%;
+}
 .bd-content {
   order: 1;
 

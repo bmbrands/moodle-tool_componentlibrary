@@ -8,18 +8,54 @@
     show_markup: if the markup should be output in the HTML - default: `true`
 */ -}}
 
-{{- .Get "template" -}}
-
-<div data-region="displaytemplatesource">
-
+<div id="root{{- .Position.LineNumber -}}" class="mb-5 mt-2 bg-light p-4">
+    <h6 class="mb-3">{{- .Get "template" -}}</h6>
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active"
+                id="nav-rendered{{- .Position.LineNumber -}}-tab"
+                data-toggle="tab"
+                href="#nav-rendered{{- .Position.LineNumber -}}"
+                role="tab" aria-controls="nav-rendered{{- .Position.LineNumber -}}" aria-selected="true"
+            >
+                Rendered
+            </a>
+            <a class="nav-item nav-link"
+                id="nav-template{{- .Position.LineNumber -}}-tab"
+                data-toggle="tab"
+                href="#nav-template{{- .Position.LineNumber -}}" role="tab" aria-controls="nav-template{{- .Position.LineNumber -}}" aria-selected="false"
+            >
+                Template
+            </a>
+            <a class="nav-item nav-link"
+                id="nav-variables{{- .Position.LineNumber -}}-tab"
+                data-toggle="tab"
+                href="#nav-variables{{- .Position.LineNumber -}}" role="tab" aria-controls="nav-variables{{- .Position.LineNumber -}}" aria-selected="false"
+            >
+                Variables
+            </a>
+        </div>
+    </nav>
+    <div class="tab-content p-3 bg-white" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-rendered{{- .Position.LineNumber -}}" role="tabpanel" aria-labelledby="nav-rendered{{- .Position.LineNumber -}}-tab">
+            <div data-region="rendered">
+            </div>
+        </div>
+        <div class="tab-pane fade" id="nav-template{{- .Position.LineNumber -}}" role="tabpanel" aria-labelledby="nav-template{{- .Position.LineNumber -}}-tab">
+            <pre data-region="source" class="mb3">
+            </pre>
+        </div>
+        <div class="tab-pane fade" id="nav-variables{{- .Position.LineNumber -}}" role="tabpanel" aria-labelledby="nav-variables{{- .Position.LineNumber -}}-tab">
+            <pre data-region="config" class="mb3">
+            </pre>
+        </div>
+    </div>
 </div>
 
-<div data-region="displaytemplateexample">
 
-</div>
 
 <script>
 require(['jquery', 'tool_componentlibrary/mustache'], function($, mustache) {
-  mustache.init('{{- .Get "template" -}}');
+    mustache.init('#root{{- .Position.LineNumber -}}', '{{- .Get "template" -}}');
 });
 </script>

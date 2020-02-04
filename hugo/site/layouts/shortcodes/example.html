@@ -11,10 +11,12 @@
 {{- $show_preview := .Get "show_preview" | default true -}}
 {{- $show_markup := .Get "show_markup" | default true -}}
 {{- $input := .Inner -}}
+{{- $inputrendered := replaceRE `{{#js}}` "<script>" $input -}}
+{{- $inputrendered = replaceRE `{{/js}}` "</script>" $inputrendered -}}
 
 {{- if eq $show_preview true -}}
 <div{{ with .Get "id" }} id="{{ . }}"{{ end }} class="bd-example{{ with .Get "class" }} {{ . }}{{ end }}">
-  {{- $input -}}
+  {{- $inputrendered | safeHTML -}}
 </div>
 {{- end -}}
 

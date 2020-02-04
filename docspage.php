@@ -37,11 +37,17 @@ $docs = clean_param($args[0], PARAM_TEXT);
 $version = clean_param($args[1], PARAM_TEXT);
 $folder = clean_param($args[2], PARAM_TEXT);
 $page = clean_param($args[3], PARAM_TEXT);
+$theme = optional_param('theme', '', PARAM_TEXT);
 
-$docsdir = '/admin/tool/componentlibrary/docs/docs/';
-$basedir = $CFG->dirroot . $docsdir;
-$cssfile = $docsdir . $version . '/dist/css/docs.css';
-$docspage = $basedir . $version . '/' . $folder . '/' . $page . '/index.html';
+
+$docsdir = '/admin/tool/componentlibrary/docs/';
+$cssfile = '/admin/tool/componentlibrary/hugo/dist/css/docs.css';
+
+if ($docs == 'bootstrap-4.3') {
+	$docspage = $CFG->dirroot . $docsdir . 'bootstrap-4.3/' . $version . '/' . $folder . '/' . $page . '/index.html';
+} else if ($docs == 'moodle-3.9') {
+	$docspage = $CFG->dirroot . $docsdir . 'moodle-3.9/' . $version . '/' . $folder . '/' . $page . '/index.html';
+}
 
 $PAGE->set_pagelayout('embedded');
 $thispageurl = new moodle_url('/admin/tool/componentlibrary/docspage.php');
@@ -54,14 +60,34 @@ $PAGE->set_docs_path('');
 $PAGE->requires->css($cssfile);
 
 echo $OUTPUT->header();
+$config = new stdClass();
+$config->posturl = $PAGE->url . $relativepath;
+$config->jsonfile = $CFG->wwwroot . '/admin/tool/componentlibrary/docs/my-index.json';
+echo $OUTPUT->render_from_template('tool_componentlibrary/navbar', $config);
+if (!file_exists($CFG->dirroot . $docsdir)) {
+	echo $OUTPUT->render_from_template('tool_componentlibrary/rundocs', (object) []);
+	exit(0);
+}
 echo $OUTPUT->footer();
 
+
+$themes = core_component::get_plugin_list('theme');
+foreach ($themes as $themename => $themedir) {
+	$config->themes[] = (object) ['name' => $themename, 'url' => $url];
+}
+
+
+// Load the content after the footer that contains the JS for this page.
 if (file_exists($docspage)) {
     $page = file_get_contents($docspage);
+    $page = str_replace('http://MOODLEROOT', $thispageurl, $page);
+    $page = str_replace('MOODLEIMAGEDIR', new moodle_url('/admin/tool/componentlibrary/content/static'), $page);
     $filtered = str_replace('MOODLEROOT', $thispageurl, $page);
+    $filtered = str_replace('MOODLESITE', $CFG->wwwroot, $page);
     echo $filtered;
 } else {
-    echo $docspage . "NOT FOUND";
+	$firstpage = new moodle_url('/admin/tool/componentlibrary/docspage.php/moodle-3.9/getting-started/introduction/');
+	redirect($firstpage);
 }
 
 
