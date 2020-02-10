@@ -63,19 +63,18 @@ echo $OUTPUT->header();
 $config = new stdClass();
 $config->posturl = $PAGE->url . $relativepath;
 $config->jsonfile = $CFG->wwwroot . '/admin/tool/componentlibrary/docs/my-index.json';
-echo $OUTPUT->render_from_template('tool_componentlibrary/navbar', $config);
-if (!file_exists($CFG->dirroot . $docsdir)) {
-	echo $OUTPUT->render_from_template('tool_componentlibrary/rundocs', (object) []);
-	exit(0);
-}
-echo $OUTPUT->footer();
-
 
 $themes = core_component::get_plugin_list('theme');
 foreach ($themes as $themename => $themedir) {
-	$config->themes[] = (object) ['name' => $themename, 'url' => $url];
+    $config->themes[] = (object) ['name' => $themename];
 }
 
+echo $OUTPUT->render_from_template('tool_componentlibrary/navbar', $config);
+if (!file_exists($CFG->dirroot . $docsdir)) {
+    echo $OUTPUT->render_from_template('tool_componentlibrary/rundocs', (object) []);
+    exit(0);
+}
+echo $OUTPUT->footer();
 
 // Load the content after the footer that contains the JS for this page.
 if (file_exists($docspage)) {
@@ -86,8 +85,8 @@ if (file_exists($docspage)) {
     $filtered = str_replace('MOODLESITE', $CFG->wwwroot, $page);
     echo $filtered;
 } else {
-	$firstpage = new moodle_url('/admin/tool/componentlibrary/docspage.php/moodle-3.9/getting-started/introduction/');
-	redirect($firstpage);
+    $firstpage = new moodle_url('/admin/tool/componentlibrary/docspage.php/moodle-3.9/getting-started/introduction/');
+    redirect($firstpage);
 }
 
 
