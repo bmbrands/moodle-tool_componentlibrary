@@ -64,9 +64,15 @@ $config = new stdClass();
 $config->posturl = $PAGE->url . $relativepath;
 $config->jsonfile = $CFG->wwwroot . '/admin/tool/componentlibrary/docs/my-index.json';
 
-$themes = core_component::get_plugin_list('theme');
-foreach ($themes as $themename => $themedir) {
-    $config->themes[] = (object) ['name' => $themename];
+if (get_config('core', 'allowthemechangeonurl')) {
+    $themes = core_component::get_plugin_list('theme');
+    $themes = array_keys($themes);
+    foreach ($themes as $themename) {
+        $config->themes[] = (object) ['name' => $themename];
+    }
+    $config->hasthemes = true;
+} else {
+    $config->hasthemes = false;
 }
 
 echo $OUTPUT->render_from_template('tool_componentlibrary/navbar', $config);
