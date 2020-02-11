@@ -65,15 +65,22 @@ $config = new stdClass();
 $config->homeurl = $CFG->wwwroot;
 $config->posturl = $PAGE->url . $relativepath;
 $config->jsonfile = $CFG->wwwroot . '/admin/tool/componentlibrary/docs/my-index.json';
+
+if (get_config('core', 'allowthemechangeonurl')) {
+    $themes = core_component::get_plugin_list('theme');
+    $themes = array_keys($themes);
+    foreach ($themes as $themename) {
+        $config->themes[] = (object) ['name' => $themename];
+    }
+    $config->hasthemes = true;
+} else {
+    $config->hasthemes = false;
+}
+
 echo $OUTPUT->render_from_template('tool_componentlibrary/navbar', $config);
 if (!file_exists($CFG->dirroot . $docsdir)) {
     echo $OUTPUT->render_from_template('tool_componentlibrary/rundocs', (object) []);
     exit(0);
-}
-
-$themes = core_component::get_plugin_list('theme');
-foreach ($themes as $themename => $themedir) {
-    $config->themes[] = (object) ['name' => $themename];
 }
 
 // Load the content after the footer that contains the JS for this page.

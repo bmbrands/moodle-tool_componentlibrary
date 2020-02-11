@@ -25,7 +25,7 @@
 $string['all'] = 'All components';
 $string['pluginname'] = 'Component library';
 $string['privacy:metadata'] = 'The Component library plugin does not store any personal data.';
-$string['installer'] = '	<h3>Please setup this component library</h3>
+$string['installer'] = '<h3>Please setup this component library</h3>
 	<p>Before you can see the content of the component library you will need to have shell access to your Moodle installation and be able to write to folder /admin/tool/componentlibrary and have npm installed on your Moodle server.</p>
 	<p>If you meet these requirements you can cd into the /admin/tool/componentlibrary folder, and run:</p>
 	<pre>npm install</pre>
@@ -34,3 +34,6 @@ $string['installer'] = '	<h3>Please setup this component library</h3>
 	<pre>npm run docs-build</pre>
 	<p>That will start <a href="http://gohugo.io">Hugo</a>, a static site builder that creates the HTML pages from the source files in /content</p>
 	<p>For more info see the README.md file in this plugin</p>';
+
+$string['themeselector'] = 'Theme selector';
+$string['urlswitchurlwarning'] = 'To have the theme selector on the navbar, the core theme \'allowthemechangeonurl\' setting needs to be set.';

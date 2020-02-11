@@ -40,20 +40,20 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        {{#hasthemes}}
         <form class="form-inline mr-auto" method="get" action="{{{ posturl }}}">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Theme Selector
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    {{#themes}}
-                    <input type="submit" class="dropdown-item" name="theme" value="{{ name }}">
-                    {{/themes}}
-                </div>
-            </li>
-        </ul>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{# str }}themeselector, tool_componentlibrary{{/ str }}</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        {{#themes}}
+                        <input type="submit" class="dropdown-item" name="theme" value="{{ name }}">
+                        {{/themes}}
+                    </div>
+                </li>
+            </ul>
         </form>
+        {{/hasthemes}}
         <form class="form-inline my-2 my-lg-0">
             <div data-region="docsearch" class="dropdown">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -64,6 +64,9 @@
         </form>
     </div>
 </nav>
+{{^hasthemes}}
+<p>{{# str }}urlswitchurlwarning, tool_componentlibrary{{/ str }}</p>
+{{/hasthemes}}
 {{#js}}
 require(
 [
