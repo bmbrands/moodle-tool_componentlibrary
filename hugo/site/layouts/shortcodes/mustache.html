@@ -8,7 +8,7 @@
     show_markup: if the markup should be output in the HTML - default: `true`
 */ -}}
 
-<div id="root{{- .Position.LineNumber -}}" class="mb-5 mt-2 bg-light p-4">
+<div id="root{{- .Position.LineNumber -}}" data-region="mustachecode" data-template="{{- .Get "template" -}}" class="mb-5 mt-2 bg-light p-4">
     <h6 class="mb-3">{{- .Get "template" -}}</h6>
     <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -51,11 +51,3 @@
         </div>
     </div>
 </div>
-
-
-
-<script>
-require(['jquery', 'tool_componentlibrary/mustache'], function($, mustache) {
-    mustache.init('#root{{- .Position.LineNumber -}}', '{{- .Get "template" -}}');
-});
-</script>

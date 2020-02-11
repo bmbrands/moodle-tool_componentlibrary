@@ -57,7 +57,7 @@ function($, lunr, Log) {
 
             })
             .fail(function(jqxhr, textStatus, error) {
-                Log.debug("Error getting Hugo index file:" + textStatus + ", " + error;;
+                Log.debug("Error getting Hugo index file:" + textStatus + ", " + error);
             });
     }
 

@@ -14,7 +14,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This is called from the hugo shortcodes
+ * This is called from to render mustache templates
  *
  * @module     tool_componentlibrary/mustache
  * @package    tool_componentlibrary
@@ -82,14 +82,14 @@ define(['jquery', 'core/ajax', 'core/log', 'core/notification', 'core/templates'
             docs = findDocsSection(originalSource, templateName);
         }
 
-        // If we found a docs section, limit the template library to showing this section.
-        if (docs) {
-            source = docs;
+        if (docs === false) {
+            log.debug('Template is missing docs section.');
+            return;
         }
 
-        var example = source.match(/Example context \(json\):([\s\S]*);?/);
+        var example = docs.match(/Example context \(json\):([\s\S]*);?/);
 
-        root.find('[data-region="config"]').text(example);
+        root.find('[data-region="config"]').text(example[1].trim());
 
         var context = false;
         if (example) {
@@ -98,6 +98,7 @@ define(['jquery', 'core/ajax', 'core/log', 'core/notification', 'core/templates'
                 context = $.parseJSON(rawJSON);
             } catch (e) {
                 log.debug('Could not parse json example context for template.');
+                log.debug(rawJSON);
                 log.debug(e);
             }
         }
@@ -147,9 +148,12 @@ define(['jquery', 'core/ajax', 'core/log', 'core/notification', 'core/templates'
             .fail(notification.exception);
     };
 
-    var init = function(root, templatename) {
-        var root = $(root);
-        loadTemplate(root, templatename);
+    var init = function() {
+        var root = $('[data-region="componentlibrary"]');
+        root.find('[data-region="mustachecode"]').each(function() {
+            var templatename = $(this).attr("data-template");
+            loadTemplate($(this), templatename);
+        });
     };
 
     // This module does not expose anything.

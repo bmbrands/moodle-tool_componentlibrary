@@ -3,7 +3,7 @@ layout: docs
 title: "Test Templates"
 date: 2020-01-14T13:38:37+01:00
 group: moodle-components
-draft: false
+draft: true
 ---
 
 ## Testing the mustache renderer

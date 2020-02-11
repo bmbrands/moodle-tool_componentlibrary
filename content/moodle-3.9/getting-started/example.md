@@ -2,7 +2,7 @@
 layout: docs
 title: "Example Page"
 date: 2020-02-04T09:40:32+01:00
-draft: false
+draft: true
 ---
 
 ## Images
@@ -58,3 +58,7 @@ var config = {
     </tr>
   </tbody>
 </table>
+
+## Mustache templates
+
+{{< mustache template="tool_componentlibrary/navbar" >}}

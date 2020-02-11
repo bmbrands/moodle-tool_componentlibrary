@@ -2,12 +2,12 @@
 layout: docs
 title: "Moodle Charts"
 date: 2020-01-14T16:32:24+01:00
-draft: true
+draft: false
 ---
 
-## Component name
+## ChartJS
 
-Describe what this component is used for.
+lib/amd/chart_builder provides an interface for the ChartJS library that allows you to create a nice visual presentation of your data.
 
 ## Examples
 
@@ -28,7 +28,7 @@ Provide examples on how this component can be used and include some example code
     </div>
 </div>
 
-<script>
+{{#js}}
 var chartdata = {"type":"line","series":[{"label":"Sales","labels":null,"type":null,"values":[1000,1170,660,1030],"colors":[],"axes":{"x":null,"y":null},"smooth":null},{"label":"Expenses","labels":null,"type":null,"values":[400,460,1120,540],"colors":[],"axes":{"x":null,"y":null},"smooth":null}],"labels":["2004","2005","2006","2007"],"title":"TENSIONED LINES CHART","axes":{"x":[],"y":[]},"config_colorset":null,"smooth":false};
 
 require([
@@ -61,7 +61,7 @@ require([
         }
     });
 });
-</script>
+{{/js}}
 {{< /example >}}
 
 ## Accessibility
