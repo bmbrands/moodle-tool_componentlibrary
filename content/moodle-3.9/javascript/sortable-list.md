@@ -46,7 +46,6 @@ It can be used to create a list where each element is draggable.
     </li>
 </ul>
 {{#js}}
-console.log('hello');
 require(
 [
     'jquery',

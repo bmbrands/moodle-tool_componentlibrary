@@ -39,14 +39,13 @@ $folder = clean_param($args[2], PARAM_TEXT);
 $page = clean_param($args[3], PARAM_TEXT);
 $theme = optional_param('theme', '', PARAM_TEXT);
 
-
 $docsdir = '/admin/tool/componentlibrary/docs/';
 $cssfile = '/admin/tool/componentlibrary/hugo/dist/css/docs.css';
 
 if ($docs == 'bootstrap-4.3') {
-	$docspage = $CFG->dirroot . $docsdir . 'bootstrap-4.3/' . $version . '/' . $folder . '/' . $page . '/index.html';
+    $docspage = $CFG->dirroot . $docsdir . 'bootstrap-4.3/' . $version . '/' . $folder . '/' . $page . '/index.html';
 } else if ($docs == 'moodle-3.9') {
-	$docspage = $CFG->dirroot . $docsdir . 'moodle-3.9/' . $version . '/' . $folder . '/' . $page . '/index.html';
+    $docspage = $CFG->dirroot . $docsdir . 'moodle-3.9/' . $version . '/' . $folder . '/' . $page . '/index.html';
 }
 
 $PAGE->set_pagelayout('embedded');
@@ -56,11 +55,14 @@ $PAGE->set_context(context_system::instance());
 $title = get_string('pluginname', 'tool_componentlibrary');
 $PAGE->set_heading($title);
 $PAGE->set_title($title);
-$PAGE->set_docs_path('');
 $PAGE->requires->css($cssfile);
+$PAGE->requires->js_call_amd('tool_componentlibrary/mustache', 'init');
+$PAGE->requires->js_call_amd('tool_componentlibrary/jsrunner', 'init');
 
 echo $OUTPUT->header();
+
 $config = new stdClass();
+$config->homeurl = $CFG->wwwroot;
 $config->posturl = $PAGE->url . $relativepath;
 $config->jsonfile = $CFG->wwwroot . '/admin/tool/componentlibrary/docs/my-index.json';
 
@@ -80,7 +82,6 @@ if (!file_exists($CFG->dirroot . $docsdir)) {
     echo $OUTPUT->render_from_template('tool_componentlibrary/rundocs', (object) []);
     exit(0);
 }
-echo $OUTPUT->footer();
 
 // Load the content after the footer that contains the JS for this page.
 if (file_exists($docspage)) {
@@ -95,4 +96,4 @@ if (file_exists($docspage)) {
     redirect($firstpage);
 }
 
-
+echo $OUTPUT->footer();
