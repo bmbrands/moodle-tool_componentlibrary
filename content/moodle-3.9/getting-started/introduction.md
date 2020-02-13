@@ -26,7 +26,7 @@ A large part of this library contains information about [Bootstrap](http://getbo
 
 ## Build with Hugo
 
-This page and all other pages in the Component library are build using [Hugo](http://hugo.io), a static site generator that can turn documentation written in Markdown into nice pages like the one you are looking at right now.
+This page and all other pages in the Component library are build using [Hugo](http:/gohugo.io), a static site generator that can turn documentation written in Markdown into nice pages like the one you are looking at right now.
 
 ## Using npm scripts
 
@@ -40,6 +40,14 @@ The package.json includes numerous tasks. Run `npm run` to see all the npm scrip
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>
+        <code>npm run start</code>
+      </td>
+      <td>
+        Run all scripts to create docs, build css, build the search index.
+      </td>
+    </tr>
     <tr>
       <td>
         <code>npm run docs-build</code>
@@ -62,6 +70,14 @@ The package.json includes numerous tasks. Run `npm run` to see all the npm scrip
       </td>
       <td>
         Compile all scss for these docs pages.
+      </td>
+    </tr>
+        <tr>
+      <td>
+        <code>npm run index</code>
+      </td>
+      <td>
+        Index all pages for the search feature
       </td>
     </tr>
   </tbody>

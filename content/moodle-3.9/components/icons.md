@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: "FontAwesome"
+title: "Moodle icons"
 date: 2020-02-04T09:40:32+01:00
 draft: false
 ---
@@ -44,5 +44,7 @@ Use the pix_icon method to retreive the HTML for an icon.
 Options:
 
 ## List of mapped font-awesome icons
+
+The top title of each cards displayse the name of the icon. The icon shown left is the font-awesome icons. The icon shown on the right is the old image base icon.
 
 {{< moodleicons >}}

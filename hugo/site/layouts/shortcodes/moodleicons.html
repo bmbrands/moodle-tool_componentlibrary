@@ -4,11 +4,18 @@
 
 
 <div class="card-deck">
-  {{ range $.Site.Data.moodleicons }}
-  <div class="card mb-2 p-1 d-flex justify-content-center text-center" style="flex: 0 0 15%; height: 100px">
-    <div class="mb-1"><i class="fa {{ .icon }} fa-2x"></i></div>
-    <div class="small text-truncate" data-toggle="tooltip" data-placement="bottom" title="{{ .name }}">{{ .name }}</div>
-    <div class="small text-truncate mb-1" data-toggle="tooltip" data-placement="bottom" title="{{ .icon }}">{{ .icon }}</div>
+  {{ range $.Site.Data.fontawesomeicons }}
+  <div class="card mb-2 p-1 d-flex text-center" style="flex: 0 0 20%; height: 150px">
+  	<div class="small text-truncate" data-toggle="tooltip" data-placement="bottom" title="{{ .name }}">{{ .name }}</div>
+    <div class="row no-gutters my-4">
+    	<div class="col-sm-6 d-flex align-items-center justify-content-center">
+    		<i class="fa {{ .icon }} fa-2x"></i>
+    	</div>
+    	<div class="col-sm-6 d-flex align-items-center justify-content-center">
+    		{{ .standardicon | safeHTML }}
+    	</div>
+    </div>
+    	<div class="small text-truncate mb-1" title="{{ .icon }}">{{ .icon }}</div>
   </div>
   {{ end }}
 

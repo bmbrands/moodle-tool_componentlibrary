@@ -35,34 +35,29 @@
 }}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100">
     <a class="navbar-brand" href="{{{ homeurl }}}">Home</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    {{#hasthemes}}
+    <form class="form-inline mr-auto" method="get" action="{{{ posturl }}}">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{# str }}themeselector, tool_componentlibrary{{/ str }}</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {{#themes}}
+                    <input type="submit" class="dropdown-item" name="theme" value="{{ name }}">
+                    {{/themes}}
+                </div>
+            </li>
+        </ul>
+    </form>
+    {{/hasthemes}}
+    <form class="form-inline my-2 my-lg-0">
+        <div data-region="docsearch" class="dropdown">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <ul class="dropdown-menu">
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        {{#hasthemes}}
-        <form class="form-inline mr-auto" method="get" action="{{{ posturl }}}">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{# str }}themeselector, tool_componentlibrary{{/ str }}</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        {{#themes}}
-                        <input type="submit" class="dropdown-item" name="theme" value="{{ name }}">
-                        {{/themes}}
-                    </div>
-                </li>
             </ul>
-        </form>
-        {{/hasthemes}}
-        <form class="form-inline my-2 my-lg-0">
-            <div data-region="docsearch" class="dropdown">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <ul class="dropdown-menu">
+        </div>
+    </form>
 
-                </ul>
-            </div>
-        </form>
-    </div>
 </nav>
 {{^hasthemes}}
 <p>{{# str }}urlswitchurlwarning, tool_componentlibrary{{/ str }}</p>

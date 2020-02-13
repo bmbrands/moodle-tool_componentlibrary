@@ -23,7 +23,7 @@
  */
 
 $string['all'] = 'All components';
-$string['pluginname'] = 'Component library';
+$string['pluginname'] = 'UI Component library';
 $string['privacy:metadata'] = 'The Component library plugin does not store any personal data.';
 $string['installer'] = '<h3>Please setup this component library</h3>
 	<p>Before you can see the content of the component library you will need to have shell access to your Moodle installation and be able to write to folder /admin/tool/componentlibrary and have npm installed on your Moodle server.</p>
@@ -31,7 +31,7 @@ $string['installer'] = '<h3>Please setup this component library</h3>
 	<pre>npm install</pre>
 	<p>This will fetch all the required packages for building the component library docs.</p>
 	<p>Once they are installed you can run:</p>
-	<pre>npm run docs-build</pre>
+	<pre>npm run start</pre>
 	<p>That will start <a href="http://gohugo.io">Hugo</a>, a static site builder that creates the HTML pages from the source files in /content</p>
 	<p>For more info see the README.md file in this plugin</p>';
 

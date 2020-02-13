@@ -23,11 +23,9 @@ The example short code included with the component library is an easy and simple
 
 The example code will be rendered on the page and allows you to use Moodle's amd structure for require.js. The ```{{#js}}``` tags will be transformed into normal ```<script>``` tags. 
 
-
 ## Example
 
 This example shows the result of the Bootstrap toast method using Jquery and a Boostrap AMD module.
-
 
 {{< example >}}
 <div id="toasttest" role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-autohide="false">

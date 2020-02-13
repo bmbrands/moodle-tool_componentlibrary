@@ -111,7 +111,7 @@ function($, lunr, Log) {
         // Clear out the results.
         $('[data-region="docsearch"] .dropdown-menu').html(' ');
 
-        var baseUrl = M.cfg.wwwroot + '/admin/tool/componentlibrary/docspage.php/';
+        var baseUrl = M.cfg.wwwroot + '/admin/tool/componentlibrary/docspage.php';
         // Only show the ten first results
         results.slice(0, 10).forEach(function(result) {
             var $result = $("<li>");

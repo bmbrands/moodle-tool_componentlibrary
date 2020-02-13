@@ -14,7 +14,7 @@ Pages for the component library are written in [Markdown](https://github.com/ada
 
 Hugo pages are created with the Hugo binary which is not included with this component library. To install it you will need to have `npm` installed on your Moodle server. With npm install simpy run `npm install` to fetch hugo and all dependancies.
 
-Once you have installed you all you need to do is run `npm run docs-build` to create the component library pages.
+Once you have installed you all you need to do is run `npm run start` to create the component library pages.
 
 All configuration for running Hugo is included in this plugin. The required folders for Hugo are:
 
@@ -56,6 +56,6 @@ Run this command to create a new page called `MYDOCSPAGE`.
 Open your new docs page in your editor and start writing your page. When you are done run this command to see the results.
 
 ```
-npm run docs-build
+npm run start
 ```
 

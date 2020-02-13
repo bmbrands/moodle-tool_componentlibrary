@@ -5,71 +5,84 @@ date: 2020-01-14T16:32:24+01:00
 draft: false
 ---
 
-## ChartJS
+## Description
 
-lib/amd/chart_builder provides an interface for the ChartJS library that allows you to create a nice visual presentation of your data.
+The core chart_builder interface for the ChartJS library that allows you to create a nice visual presentation of your data.
 
-## Examples
+## Source files
 
-Provide examples on how this component can be used and include some example code.
+* lib/amd/src/chart_builder.js
+* lib/amd/src/chart_*.js
+* lib/templates/chart.mustache
 
-### Example 1
+## Core api
 
-{{< example >}}
-<div class="chart-area" id="chart-area-999">
-    <div class="chart-image" role="presentation" aria-describedby="chart-table-data-999"></div>
-    <div class="chart-table {{^withtable}}accesshide{{/withtable}}">
-        <p class="chart-table-expand">
-            <a href="#" aria-controls="chart-table-data-999" role="button">
-                {{#str}}showchartdata, moodle{{/str}}
-            </a>
-        </p>
-        <div class="chart-table-data" id="chart-table-data-999" {{#withtable}}role="complementary" aria-expanded="false"{{/withtable}}></div>
-    </div>
-</div>
+Create a new instance of your required chart type
 
-{{#js}}
-var chartdata = {"type":"line","series":[{"label":"Sales","labels":null,"type":null,"values":[1000,1170,660,1030],"colors":[],"axes":{"x":null,"y":null},"smooth":null},{"label":"Expenses","labels":null,"type":null,"values":[400,460,1120,540],"colors":[],"axes":{"x":null,"y":null},"smooth":null}],"labels":["2004","2005","2006","2007"],"title":"TENSIONED LINES CHART","axes":{"x":[],"y":[]},"config_colorset":null,"smooth":false};
+{{< php >}}
+  $chart1 = new chart_bar();
+  $series1 = new chart_series('Data type', $data);
+  $chart1->add_series($series1);
+  $OUTPUT->render($chart1);
+{{< / php >}}
 
-require([
-    'jquery',
-    'core/chart_builder',
-    'core/chart_output_chartjs',
-    'core/chart_output_htmltable',
-], function($, Builder, Output, OutputTable) {
-    var data = chartdata,
-        uniqid = "999",
-        chartArea = $('#chart-area-' + uniqid),
-        chartImage = chartArea.find('.chart-image'),
-        chartTable = chartArea.find('.chart-table-data'),
-        chartLink = chartArea.find('.chart-table-expand a');
-    Builder.make(data).then(function(ChartInst) {
-        new Output(chartImage, ChartInst);
-        new OutputTable(chartTable, ChartInst);
-    });
 
-    chartLink.on('click', function(e) {
-        e.preventDefault();
-        if (chartTable.is(':visible')) {
-            chartTable.hide();
-            chartLink.text("showchartdata");
-            chartTable.attr('aria-expanded', false);
-        } else {
-            chartTable.show();
-            chartLink.text("hidechartdata");
-            chartTable.attr('aria-expanded', true);
-        }
-    });
-});
-{{/js}}
-{{< /example >}}
+### JavaScript
 
-## Accessibility
+{{< mustachewithcontext template="core/chart" >}}
+{
+    "chartdata": "{\u0022type\u0022:\u0022pie\u0022,\u0022series\u0022:[{\u0022label\u0022:\u0022Sales\u0022,\u0022labels\u0022:null,\u0022type\u0022:null,\u0022values\u0022:[1000,1170,660,1030],\u0022colors\u0022:[],\u0022axes\u0022:{\u0022x\u0022:null,\u0022y\u0022:null},\u0022smooth\u0022:null}],\u0022labels\u0022:[\u00222004\u0022,\u00222005\u0022,\u00222006\u0022,\u00222007\u0022],\u0022title\u0022:\u0022PIE CHART\u0022,\u0022axes\u0022:{\u0022x\u0022:[],\u0022y\u0022:[]},\u0022config_colorset\u0022:null,\u0022doughnut\u0022:null}",
+    "withtable": true
+}
+{{< /mustachewithcontext >}}
 
-## Usage
+{{< mustachewithcontext template="core/chart" >}}
+{
+    "chartdata": "{\u0022type\u0022:\u0022pie\u0022,\u0022series\u0022:[{\u0022label\u0022:\u0022Sales\u0022,\u0022labels\u0022:null,\u0022type\u0022:null,\u0022values\u0022:[1000,1170,660,1030],\u0022colors\u0022:[],\u0022axes\u0022:{\u0022x\u0022:null,\u0022y\u0022:null},\u0022smooth\u0022:null}],\u0022labels\u0022:[\u00222004\u0022,\u00222005\u0022,\u00222006\u0022,\u00222007\u0022],\u0022title\u0022:\u0022DOUGHNUT CHART\u0022,\u0022axes\u0022:{\u0022x\u0022:[],\u0022y\u0022:[]},\u0022config_colorset\u0022:null,\u0022doughnut\u0022:true}",
+    "withtable": true
+}
+{{< /mustachewithcontext >}}
 
-List the available CSS classes for this componentn
+{{< mustachewithcontext template="core/chart" >}}
+{
+    "chartdata": "{\u0022type\u0022:\u0022line\u0022,\u0022series\u0022:[{\u0022label\u0022:\u0022Sales\u0022,\u0022labels\u0022:null,\u0022type\u0022:null,\u0022values\u0022:[1000,1170,660,1030],\u0022colors\u0022:[],\u0022axes\u0022:{\u0022x\u0022:null,\u0022y\u0022:null},\u0022smooth\u0022:null},{\u0022label\u0022:\u0022Expenses\u0022,\u0022labels\u0022:null,\u0022type\u0022:null,\u0022values\u0022:[400,460,1120,540],\u0022colors\u0022:[],\u0022axes\u0022:{\u0022x\u0022:null,\u0022y\u0022:null},\u0022smooth\u0022:null}],\u0022labels\u0022:[\u00222004\u0022,\u00222005\u0022,\u00222006\u0022,\u00222007\u0022],\u0022title\u0022:\u0022TENSIONED LINES CHART\u0022,\u0022axes\u0022:{\u0022x\u0022:[],\u0022y\u0022:[]},\u0022config_colorset\u0022:null,\u0022smooth\u0022:false}",
+    "withtable": true
+}
+{{< /mustachewithcontext >}}
 
-### Javascript attributes
+{{< mustachewithcontext template="core/chart" >}}
+{
+    "chartdata": "{\u0022type\u0022:\u0022line\u0022,\u0022series\u0022:[{\u0022label\u0022:\u0022Sales\u0022,\u0022labels\u0022:null,\u0022type\u0022:null,\u0022values\u0022:[1000,1170,660,1030],\u0022colors\u0022:[],\u0022axes\u0022:{\u0022x\u0022:null,\u0022y\u0022:null},\u0022smooth\u0022:null},{\u0022label\u0022:\u0022Expenses\u0022,\u0022labels\u0022:null,\u0022type\u0022:null,\u0022values\u0022:[400,460,1120,540],\u0022colors\u0022:[],\u0022axes\u0022:{\u0022x\u0022:null,\u0022y\u0022:null},\u0022smooth\u0022:null}],\u0022labels\u0022:[\u00222004\u0022,\u00222005\u0022,\u00222006\u0022,\u00222007\u0022],\u0022title\u0022:\u0022SMOOTH LINES CHART\u0022,\u0022axes\u0022:{\u0022x\u0022:[],\u0022y\u0022:[]},\u0022config_colorset\u0022:null,\u0022smooth\u0022:true}",
+    "withtable": true
+}
+{{< /mustachewithcontext >}}
 
-List the various data-attributes linked to JavaScript behaviour for this component.
+{{< mustachewithcontext template="core/chart" >}}
+{
+    "chartdata": "{\u0022type\u0022:\u0022bar\u0022,\u0022series\u0022:[{\u0022label\u0022:\u0022Sales\u0022,\u0022labels\u0022:null,\u0022type\u0022:null,\u0022values\u0022:[1000,1170,660,1030],\u0022colors\u0022:[],\u0022axes\u0022:{\u0022x\u0022:null,\u0022y\u0022:null},\u0022smooth\u0022:null},{\u0022label\u0022:\u0022Expenses\u0022,\u0022labels\u0022:null,\u0022type\u0022:null,\u0022values\u0022:[400,460,1120,540],\u0022colors\u0022:[],\u0022axes\u0022:{\u0022x\u0022:null,\u0022y\u0022:null},\u0022smooth\u0022:null}],\u0022labels\u0022:[\u00222004\u0022,\u00222005\u0022,\u00222006\u0022,\u00222007\u0022],\u0022title\u0022:\u0022BAR CHART\u0022,\u0022axes\u0022:{\u0022x\u0022:[],\u0022y\u0022:[{\u0022label\u0022:null,\u0022labels\u0022:null,\u0022max\u0022:null,\u0022min\u0022:0,\u0022position\u0022:null,\u0022stepSize\u0022:null}]},\u0022config_colorset\u0022:null,\u0022horizontal\u0022:false,\u0022stacked\u0022:null}",
+    "withtable": true
+}
+{{< /mustachewithcontext >}}
+
+{{< mustachewithcontext template="core/chart" >}}
+{
+    "chartdata": "{\u0022type\u0022:\u0022bar\u0022,\u0022series\u0022:[{\u0022label\u0022:\u0022Sales\u0022,\u0022labels\u0022:null,\u0022type\u0022:null,\u0022values\u0022:[1000,1170,660,1030],\u0022colors\u0022:[],\u0022axes\u0022:{\u0022x\u0022:null,\u0022y\u0022:null},\u0022smooth\u0022:null},{\u0022label\u0022:\u0022Expenses\u0022,\u0022labels\u0022:null,\u0022type\u0022:null,\u0022values\u0022:[400,460,1120,540],\u0022colors\u0022:[],\u0022axes\u0022:{\u0022x\u0022:null,\u0022y\u0022:null},\u0022smooth\u0022:null}],\u0022labels\u0022:[\u00222004\u0022,\u00222005\u0022,\u00222006\u0022,\u00222007\u0022],\u0022title\u0022:\u0022HORIZONTAL BAR CHART\u0022,\u0022axes\u0022:{\u0022x\u0022:[],\u0022y\u0022:[{\u0022label\u0022:null,\u0022labels\u0022:null,\u0022max\u0022:null,\u0022min\u0022:0,\u0022position\u0022:null,\u0022stepSize\u0022:null}]},\u0022config_colorset\u0022:null,\u0022horizontal\u0022:true,\u0022stacked\u0022:null}",
+    "withtable": true
+}
+{{< /mustachewithcontext >}}
+
+{{< mustachewithcontext template="core/chart" >}}
+{
+    "chartdata": "{\u0022type\u0022:\u0022bar\u0022,\u0022series\u0022:[{\u0022label\u0022:\u0022Sales\u0022,\u0022labels\u0022:null,\u0022type\u0022:null,\u0022values\u0022:[1000,1170,660,1030],\u0022colors\u0022:[],\u0022axes\u0022:{\u0022x\u0022:null,\u0022y\u0022:null},\u0022smooth\u0022:null},{\u0022label\u0022:\u0022Expenses\u0022,\u0022labels\u0022:null,\u0022type\u0022:null,\u0022values\u0022:[400,460,1120,540],\u0022colors\u0022:[],\u0022axes\u0022:{\u0022x\u0022:null,\u0022y\u0022:null},\u0022smooth\u0022:null}],\u0022labels\u0022:[\u00222004\u0022,\u00222005\u0022,\u00222006\u0022,\u00222007\u0022],\u0022title\u0022:\u0022STACKED BAR CHART\u0022,\u0022axes\u0022:{\u0022x\u0022:[],\u0022y\u0022:[{\u0022label\u0022:null,\u0022labels\u0022:null,\u0022max\u0022:null,\u0022min\u0022:0,\u0022position\u0022:null,\u0022stepSize\u0022:null}]},\u0022config_colorset\u0022:null,\u0022horizontal\u0022:false,\u0022stacked\u0022:true}",
+    "withtable": true
+}
+{{< /mustachewithcontext >}}
+
+{{< mustachewithcontext template="core/chart" >}}
+{
+    "chartdata": "{\u0022type\u0022:\u0022bar\u0022,\u0022series\u0022:[{\u0022label\u0022:\u0022Expenses\u0022,\u0022labels\u0022:null,\u0022type\u0022:\u0022line\u0022,\u0022values\u0022:[400,460,1120,540],\u0022colors\u0022:[],\u0022axes\u0022:{\u0022x\u0022:null,\u0022y\u0022:null},\u0022smooth\u0022:null},{\u0022label\u0022:\u0022Sales\u0022,\u0022labels\u0022:null,\u0022type\u0022:null,\u0022values\u0022:[1000,1170,660,1030],\u0022colors\u0022:[],\u0022axes\u0022:{\u0022x\u0022:null,\u0022y\u0022:null},\u0022smooth\u0022:null}],\u0022labels\u0022:[\u00222004\u0022,\u00222005\u0022,\u00222006\u0022,\u00222007\u0022],\u0022title\u0022:\u0022BAR CHART COMBINED WITH LINE CHART\u0022,\u0022axes\u0022:{\u0022x\u0022:[],\u0022y\u0022:[{\u0022label\u0022:null,\u0022labels\u0022:null,\u0022max\u0022:null,\u0022min\u0022:0,\u0022position\u0022:null,\u0022stepSize\u0022:null}]},\u0022config_colorset\u0022:null,\u0022horizontal\u0022:false,\u0022stacked\u0022:null}",
+    "withtable": true
+}
+{{< /mustachewithcontext >}}
+
+

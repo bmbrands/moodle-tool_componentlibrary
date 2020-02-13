@@ -63,42 +63,43 @@ define(['jquery', 'core/ajax', 'core/log', 'core/notification', 'core/templates'
     /**
      * Handle a template loaded response.
      *
+     * @param {String} root The template container
      * @param {String} templateName The template name
      * @param {String} source The template source
      * @param {String} originalSource The original template source (not theme overridden)
+     * @param {String} example JSON
      */
-    var templateLoaded = function(root, templateName, source, originalSource) {
+    var templateLoaded = function(root, templateName, source, originalSource, example) {
         str.get_string('templateselected', 'tool_templatelibrary', templateName).done(function(s) {
             $('[data-region="displaytemplateheader"]').text(s);
         }).fail(notification.exception);
 
-        // Find the comment section marked with @template component/template.
-        var docs = findDocsSection(source, templateName);
-
         root.find('[data-region="source"]').text(source);
 
-        if (docs === false) {
-            // Docs was not in theme template, try original.
-            docs = findDocsSection(originalSource, templateName);
+
+        if (!example) {
+            // Find the comment section marked with @template component/template.
+            var docs = findDocsSection(source, templateName);
+            if (docs === false) {
+                docs = findDocsSection(originalSource, templateName);
+            }
+            if (docs === false) {
+                log.debug('Template is missing docs section.');
+                return;
+            }
+            var example = docs.match(/Example context \(json\):([\s\S]*);?/);
+            example = example[1].trim();
+            root.find('[data-region="config"]').text(example);
         }
-
-        if (docs === false) {
-            log.debug('Template is missing docs section.');
-            return;
-        }
-
-        var example = docs.match(/Example context \(json\):([\s\S]*);?/);
-
-        root.find('[data-region="config"]').text(example[1].trim());
 
         var context = false;
+
         if (example) {
-            var rawJSON = example[1].trim();
             try {
-                context = $.parseJSON(rawJSON);
+                context = JSON.parse(example);
             } catch (e) {
                 log.debug('Could not parse json example context for template.');
-                log.debug(rawJSON);
+                log.debug(example);
                 log.debug(e);
             }
         }
@@ -118,7 +119,7 @@ define(['jquery', 'core/ajax', 'core/log', 'core/notification', 'core/templates'
      *
      * @param {String} templateName
      */
-    var loadTemplate = function(root, templateName) {
+    var loadTemplate = function(root, templateName, example) {
         var parts = templateName.split('/');
         var component = parts.shift();
         var name = parts.join('/');
@@ -141,9 +142,9 @@ define(['jquery', 'core/ajax', 'core/log', 'core/notification', 'core/templates'
 
         // When returns a new promise that is resolved when all the passed in promises are resolved.
         // The arguments to the done become the values of each resolved promise.
-        $.when.apply($, promises)
+        $.when.apply($, promises, example)
             .done(function(source, originalSource) {
-              templateLoaded(root, templateName, source, originalSource);
+              templateLoaded(root, templateName, source, originalSource, example);
             })
             .fail(notification.exception);
     };
@@ -153,6 +154,11 @@ define(['jquery', 'core/ajax', 'core/log', 'core/notification', 'core/templates'
         root.find('[data-region="mustachecode"]').each(function() {
             var templatename = $(this).attr("data-template");
             loadTemplate($(this), templatename);
+        });
+        root.find('[data-region="mustachewithcontext"').each(function() {
+            var templatename = $(this).attr("data-template");
+            var context = $(this).attr("data-config");
+            loadTemplate($(this), templatename, context);
         });
     };
 
