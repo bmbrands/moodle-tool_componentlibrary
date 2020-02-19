@@ -19,7 +19,7 @@ The buttons shown below are rendered with your current theme CSS.
 {{- range (index $.Site.Data "colours") }}
 <p>
     <button type="button" class="btn btn-{{ .name }} mr-2">
-        <i class="icon fa fa-smile-o fa-fw"></i>
+        <i class="icon fa fa-lightbulb-o fa-fw"></i>
         btn-{{ .name }}
     </button>
     <button type="button" class="btn btn-outline-{{ .name }}">
@@ -39,17 +39,63 @@ The buttons shown below are using the Component Library CSS. Most of the standar
 {{< example show_markup="false">}}
 <div data-action="contrastcheck">
 {{< colors.inline >}}
-{{- range (index $.Site.Data "colours") }}
-<p>
-    <button type="button" class="btn btn-acc-{{ .name }} mr-2">
-        <i class="icon fa fa-smile-o fa-fw"></i>
-        btn-{{ .name }}
-    </button>
-    <button type="button" class="btn btn-acc-outline-{{ .name }}">
-        <i class="icon fa fa-lightbulb-o fa-fw"></i>
-        btn-outline-{{ .name }}
-    </button>
-</p>
+{{- range $themecolours := (index $.Site.Data "colours") }}
+<div class="row mt-5 mb">
+    <div class="col-12">
+        <button type="button" class="btn btn-now-{{ .name }} mr-2">
+            <i class="icon fa fa-lightbulb-o fa-fw"></i>
+            btn-{{ $themecolours.name }}
+        </button>
+        <button type="button" class="btn btn-new-{{ .name }} mr-2">
+            <i class="icon fa fa-lightbulb-o fa-fw"></i>
+            New btn-{{ $themecolours.name }}
+        </button>
+        <button class="btn btn-sm btn-secondary" type="button" data-toggle="collapse" data-target="#btn-test-{{ .name }}" aria-expanded="false">
+           <i class="fa fa-caret-down fa-fw"></i>
+        </button>
+    </div>
+</div>
+<div class="collapse" id="btn-test-{{ .name }}">
+    <div class="row py-3">
+    {{ range $num := (seq 49) }}
+        <div class="col-md-3 mb-2">
+            <button type="button" class="btn btn-test-{{ $num }}-{{ $themecolours.name }} mr-2">
+                <i class="icon fa fa-lightbulb-o fa-fw"></i>
+                {{ $themecolours.name }} {{ $num }}
+            </button>
+        </div>
+    {{ end }}
+    </div>
+</div>
+{{- end -}}
+{{- range $themecolours := (index $.Site.Data "colours") }}
+<div class="row mt-5 mb">
+    <div class="col-12">
+        <button type="button" class="btn btn-outline-now-{{ .name }} mr-2">
+            <i class="icon fa fa-lightbulb-o fa-fw"></i>
+            btn-outline-{{ $themecolours.name }}
+        </button>
+        <button type="button" class="btn btn-outline-new-{{ .name }} mr-2">
+            <i class="icon fa fa-lightbulb-o fa-fw"></i>
+            New btn-outline-{{ $themecolours.name }}
+        </button>
+        <button class="btn btn-sm btn-secondary nomargin" type="button" data-toggle="collapse" data-target="#btn-outline-test-{{ .name }}" aria-expanded="false">
+            <i class="fa fa-caret-down fa-fw"></i>
+          </button>
+    </div>
+</div>
+<div class="collapse" id="btn-outline-test-{{ .name }}">
+    <div class="row py-3">
+    {{ range $num := (seq 49) }}
+        <div class="col-md-3 mb-2">
+            <button type="button" class="btn btn-outline-test-{{ $num }}-{{ $themecolours.name }} mr-2">
+                <i class="icon fa fa-lightbulb-o fa-fw"></i>
+                {{ $themecolours.name }} {{ $num }}
+            </button>
+        </div>
+    {{ end }}
+    </div>
+</div>
 {{- end -}}
 {{< /colors.inline >}}
 </div>
