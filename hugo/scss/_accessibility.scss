@@ -1,41 +1,3 @@
-// $primary: #1177d1;
-// $secondary: #ced4da;
-// $success: #357935;
-// $info: #1f7e9a;
-// $warning: #f0ad4e;
-// $danger: #b52b27;
-// $light: #f8f9fa;
-// $dark: #373a3c;
-
-// $primary: #73CDDA;
-// $secondary: #ced4da;
-// $success: darken(#3C994C, 6%);
-// $info: #73CDDA;
-// $warning: #f9a825;
-// $danger: darken(#EC2B35, 4%);
-// $light: #f8f9fa;
-// $dark: #373a3c;
-
-$blue:    #1177d1;
-$indigo:  #6610f2;
-$purple:  #613d7c;
-$pink:    #e83e8c;
-$red:     #d9534f;
-$orange:  #f0ad4e;
-$yellow:  #ff7518;
-$green:   #5cb85c;
-$teal:    #20c997;
-$cyan:    #5bc0de;
-
-$primary:       $blue;
-$secondary:     $gray-800;
-$success:       $green;
-$info:          $cyan;
-$warning:       $yellow;
-$danger:        $red;
-$light:         $gray-100;
-$dark:          $gray-800;
-
 $accessible-colors :(
     primary: #1177d1,
     secondary: #677889,
@@ -44,6 +6,17 @@ $accessible-colors :(
     warning: #f0ad4e,
     danger: #d9534f,
     light: #f8f9fa,
+    dark: #373a3c
+);
+
+$mdl-colours : (
+	primary: #1177d1,
+	secondary: #ced4da,
+	success: #357935,
+	info: #1f7e9a,
+	warning: #b14700,
+	danger: #b52b27,
+	light: #f8f9fa,
     dark: #373a3c
 );
 
@@ -93,9 +66,21 @@ $new-outline-colors :(
   }
 }
 
-@each $color, $value in $theme-colors {
-  .alert-acc-#{$color} {
-    @include alert-variant(theme-color-level($color, $alert-bg-level), theme-color-level($color, $alert-border-level), theme-color-level($color, $alert-color-level));
+@each $color, $value in $accessible-colors {
+  .btn-outline-now-#{$color} {
+    @include button-outline-variant($value);
+  }
+}
+
+@each $color, $value in $mdl-colours{
+  .btn-mdl-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+@each $color, $value in $mdl-colours {
+  .btn-outline-mdl-#{$color} {
+    @include button-outline-variant($value);
   }
 }
 
