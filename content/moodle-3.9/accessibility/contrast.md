@@ -34,6 +34,8 @@ The buttons shown below are rendered with your current theme CSS.
 
 ## Buttons according to MDL-64494
 
+In this issue a new pallet was suggested. The colours pass but might not be easy to differentiate. Some outline buttons have not been made accessible.
+
 {{< example show_markup="false">}}
 <div data-action="contrastcheck">
 {{< colors.inline >}}
@@ -54,9 +56,11 @@ The buttons shown below are rendered with your current theme CSS.
 {{< /example >}}
 
 
-## New Accessible buttos
+## New Accessible buttons
 
-The buttons shown below are using the Component Library CSS.
+The buttons shown below are using the Component Library CSS. For each button the colour was based on the buttons shown when you click on the down <button class="btn btn-sm btn-secondary" type="button" aria-expanded="false">
+           <i class="fa fa-caret-down fa-fw"></i>
+        </button> button. Only buttons that did not pass WCAG standards have changed.
 
 {{< example show_markup="false">}}
 <div data-action="contrastcheck">
