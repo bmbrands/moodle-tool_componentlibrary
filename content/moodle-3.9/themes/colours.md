@@ -58,7 +58,7 @@ $theme-colors: map-merge((
 
 Colours automatically create CSS classes for a range of Bootstrap Utility classes.
 
-{{< example show_markup=false >}}
+{{< example >}}
 <div class="row no-gutter">
    <div class="col-sm-6 py-3"><p>Using a white Background</p></div>
    <div class="col-sm-6 py-3 text-light bg-dark"><p>Using a dark Background</p></div>
@@ -81,9 +81,13 @@ Colours automatically create CSS classes for a range of Bootstrap Utility classe
 <div class="card-deck">
 {{< colors.inline >}}
 {{- range (index $.Site.Data "colours") }}
-  <div class="card mb-2 justify-content-center align-items-center d-flex text-center bg-{{ .name }}" style="flex: 0 0 20%; height: 150px">
-     <p>.bg-{{ .name }}</p>
-     <p>{{ .hex }}</p>
+  <div class="card mb-2 justify-content-center align-items-center d-flex" style="flex: 0 0 20%; height: 150px">
+    <div class="card-body bg-{{ .name }} w-100" style="height: 100px">
+    </div>
+    <div class="card-footer w-100">
+     <span>.bg-{{ .name }}</span>:
+     <span>{{ .hex }}</span>
+   </div>
   </div>
 {{- end -}}
 {{< /colors.inline >}}

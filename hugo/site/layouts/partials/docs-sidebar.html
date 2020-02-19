@@ -1,5 +1,5 @@
 {{$currentNode := .}}
-<nav class="docs-sidebar">
+<nav class="docs-sidebar" aria-label="Component Library Navigation">
 <ul>
 {{- if eq .Site.Params.ordersectionsby "title" -}}
   {{- range .Site.Home.Sections.ByTitle -}}
