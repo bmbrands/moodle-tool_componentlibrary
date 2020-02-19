@@ -8,7 +8,8 @@
     "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 hugo/scss/docs.scss -o hugo/dist/css/",
     "docs-build": "hugo --cleanDestinationDir",
     "docs-watch": "hugo -w",
-    "index": "hugo-lunr-indexer -i \"content/**\" -o docs/my-index.json -l \"yaml\" -d \"---\""
+    "index": "hugo-lunr-indexer -i \"content/**\" -o docs/my-index.json -l \"yaml\" -d \"---\"",
+    "docs-build-index": "hugo --cleanDestinationDir & hugo-lunr-indexer -i \"content/**\" -o docs/my-index.json -l \"yaml\" -d \"---\""
   },
   "repository": {
     "type": "git",

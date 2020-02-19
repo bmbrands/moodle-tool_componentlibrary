@@ -37,7 +37,7 @@ npm install
 
 Create the component library html pages:
 ```
-npm run docs-build
+npm run docs-build-index
 ```
 This will override any docs pages already included in this plugin.
 

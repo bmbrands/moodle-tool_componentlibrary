@@ -37,7 +37,6 @@ $docs = clean_param($args[0], PARAM_TEXT);
 $version = clean_param($args[1], PARAM_TEXT);
 $folder = clean_param($args[2], PARAM_TEXT);
 $page = clean_param($args[3], PARAM_TEXT);
-$theme = optional_param('theme', '', PARAM_TEXT);
 
 $docsdir = '/admin/tool/componentlibrary/docs/';
 $cssfile = '/admin/tool/componentlibrary/hugo/dist/css/docs.css';
