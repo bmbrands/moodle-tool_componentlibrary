@@ -57,6 +57,7 @@ $PAGE->set_title($title);
 $PAGE->requires->css($cssfile);
 $PAGE->requires->js_call_amd('tool_componentlibrary/mustache', 'init');
 $PAGE->requires->js_call_amd('tool_componentlibrary/jsrunner', 'init');
+$PAGE->requires->js_call_amd('tool_componentlibrary/checkcontrast', 'init');
 
 echo $OUTPUT->header();
 

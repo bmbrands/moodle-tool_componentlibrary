@@ -1,0 +1,37 @@
+$primary: #1177d1;
+$secondary: #ced4da;
+$success: #357935;
+$info: #1f7e9a;
+$warning: #f0ad4e;
+$danger: #b52b27;
+$light: #f8f9fa;
+$dark: #373a3c;
+
+$accessible-colors :(
+    primary: $primary,
+    secondary: $gray-400,
+    success: $success,
+    info: $info,
+    warning: $orange,
+    danger: $danger,
+    light: $gray-100,
+    dark: $gray-800
+);
+
+@each $color, $value in $accessible-colors {
+  .btn-acc-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+@each $color, $value in $accessible-colors {
+  .btn-acc-outline-#{$color} {
+    @include button-outline-variant($value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .alert-acc-#{$color} {
+    @include alert-variant(theme-color-level($color, $alert-bg-level), theme-color-level($color, $alert-border-level), theme-color-level($color, $alert-color-level));
+  }
+}
