@@ -30,6 +30,7 @@
 *.esproj
 *.sublime-project
 *.sublime-workspace
+package-lock.json
 nbproject
 Thumbs.db
 

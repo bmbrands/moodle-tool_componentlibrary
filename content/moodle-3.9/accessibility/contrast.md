@@ -16,7 +16,7 @@ The buttons shown below are rendered with your current theme CSS.
 {{< example show_markup="false">}}
 <div data-action="contrastcheck">
 {{< colors.inline >}}
-{{- range (index $.Site.Data "colours") }}
+{{- range (index $.Site.Data "a11ycolours") }}
 <p>
     <button type="button" class="btn btn-{{ .name }} mr-2">
         <i class="icon fa fa-lightbulb-o fa-fw"></i>
@@ -39,7 +39,7 @@ In this issue a new pallet was suggested. The colours pass but might not be easy
 {{< example show_markup="false">}}
 <div data-action="contrastcheck">
 {{< colors.inline >}}
-{{- range (index $.Site.Data "colours") }}
+{{- range (index $.Site.Data "a11ycolours") }}
 <p>
     <button type="button" class="btn btn-mdl-{{ .name }} mr-2">
         <i class="icon fa fa-lightbulb-o fa-fw"></i>
@@ -58,23 +58,21 @@ In this issue a new pallet was suggested. The colours pass but might not be easy
 
 ## New Accessible buttons
 
-The buttons shown below are using the Component Library CSS. For each button the colour was based on the buttons shown when you click on the down <button class="btn btn-sm btn-secondary" type="button" aria-expanded="false">
-           <i class="fa fa-caret-down fa-fw"></i>
-        </button> button. Only buttons that did not pass WCAG standards have changed.
+The buttons shown below are using the Component Library CSS. For each button the colour was based on the buttons shown when you click on the down <button class="btn btn-sm btn-secondary" type="button" aria-expanded="false"><i class="fa fa-caret-down fa-fw"></i></button> button. Only buttons that did not pass WCAG standards have changed.
 
 {{< example show_markup="false">}}
 <div data-action="contrastcheck">
 {{< colors.inline >}}
-{{- range $themecolours := (index $.Site.Data "colours") }}
-<div class="row mt-5 mb">
+{{- range $themecolours := (index $.Site.Data "a11ycolours") }}
+<div class="row mt-2 mb">
     <div class="col-12">
-        <button type="button" class="btn btn-now-{{ .name }} mr-2">
-            <i class="icon fa fa-lightbulb-o fa-fw"></i>
-            btn-{{ $themecolours.name }}
-        </button>
         <button type="button" class="btn btn-new-{{ .name }} mr-2">
             <i class="icon fa fa-lightbulb-o fa-fw"></i>
             New btn-{{ $themecolours.name }}
+        </button>
+        <button type="button" class="btn btn-outline-new-{{ .name }} mr-2">
+            <i class="icon fa fa-lightbulb-o fa-fw"></i>
+            New btn-outline-{{ $themecolours.name }}
         </button>
         <button class="btn btn-sm btn-secondary" type="button" data-toggle="collapse" data-target="#btn-test-{{ .name }}" aria-expanded="false">
            <i class="fa fa-caret-down fa-fw"></i>
@@ -92,25 +90,6 @@ The buttons shown below are using the Component Library CSS. For each button the
         </div>
     {{ end }}
     </div>
-</div>
-{{- end -}}
-{{- range $themecolours := (index $.Site.Data "colours") }}
-<div class="row mt-5 mb">
-    <div class="col-12">
-        <button type="button" class="btn btn-outline-now-{{ .name }} mr-2">
-            <i class="icon fa fa-lightbulb-o fa-fw"></i>
-            btn-outline-{{ $themecolours.name }}
-        </button>
-        <button type="button" class="btn btn-outline-new-{{ .name }} mr-2">
-            <i class="icon fa fa-lightbulb-o fa-fw"></i>
-            New btn-outline-{{ $themecolours.name }}
-        </button>
-        <button class="btn btn-sm btn-secondary nomargin" type="button" data-toggle="collapse" data-target="#btn-outline-test-{{ .name }}" aria-expanded="false">
-            <i class="fa fa-caret-down fa-fw"></i>
-          </button>
-    </div>
-</div>
-<div class="collapse" id="btn-outline-test-{{ .name }}">
     <div class="row py-3">
     {{ range $num := (seq 49) }}
         <div class="col-md-3 mb-2">
@@ -122,6 +101,69 @@ The buttons shown below are using the Component Library CSS. For each button the
     {{ end }}
     </div>
 </div>
+{{- end -}}
+{{< /colors.inline >}}
+</div>
+{{< /example >}}
+
+
+## Alerts
+
+The alert shown below are rendered with your current theme CSS.
+
+{{< example show_markup="false">}}
+<div data-action="contrastcheck">
+{{< colors.inline >}}
+{{- range (index $.Site.Data "a11ycolours") }}
+<p>
+    <div class="alert alert-{{ .name }} mr-2">
+        <i class="icon fa fa-lightbulb-o fa-fw"></i>
+        alert-{{ .name }}
+    </div>
+</p>
+{{- end -}}
+{{< /colors.inline >}}
+</div>
+{{< /example >}}
+
+## Alerts with links
+When an alert is using a link, make sure the link uses the ```.alert-link``` class, the link will not be accessible without it see:
+
+<div data-action="contrastcheck">
+    <div class="alert alert-info mr-2">
+        <a href="#">Missing link-alert</a>
+    </div>
+</div>
+
+{{< example show_markup="false">}}
+<div data-action="contrastcheck">
+{{< colors.inline >}}
+{{- range (index $.Site.Data "a11ycolours") }}
+<p>
+    <div class="alert alert-{{ .name }} mr-2">
+        <i class="icon fa fa-lightbulb-o fa-fw"></i>
+        alert-{{ .name }} <a href="#" class="alert-link">Link</a>
+    </div>
+</p>
+{{- end -}}
+{{< /colors.inline >}}
+</div>
+{{< /example >}}
+
+## New Alerts using the new Button colours
+
+Because of the changes in the button colours alerts will be affected too:
+
+{{< example show_markup="false">}}
+<div data-action="contrastcheck">
+{{< colors.inline >}}
+{{- range (index $.Site.Data "a11ycolours") }}
+<p>
+    <div class="alert alert-new-{{ .name }} mr-2">
+        <i class="icon fa fa-lightbulb-o fa-fw"></i>
+        alert-{{ .name }} <a href="#" class="alert-link">Link</a>
+    </div>
+</p>
 {{- end -}}
 {{< /colors.inline >}}
 </div>

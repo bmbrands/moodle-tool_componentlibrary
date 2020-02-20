@@ -1,16 +1,15 @@
 define(
 [
-    'jquery',
-    'core/log'
+    'jquery'
 ],
 function(
-    $,
-    Log
+    $
 ) {
 
-    var contrastErrors = {
+    var contrastResults = {
         errors: [],
-        warnings: []
+        warnings: [],
+        success: []
     };
     var contrast = {
         // Parse rgb(r, g, b) and rgba(r, g, b, a) strings into an array.
@@ -77,10 +76,8 @@ function(
             for (var i = 0; i < elements.length; i++) {
                 (function (n) {
                     var elem = elements[n];
-                    var jqe = $(elem);
-                    Log.debug(jqe);
                     // test if visible
-                    if (contrast.isVisible(elem)) {
+                    //if (contrast.isVisible(elem)) {
                         var style = getComputedStyle(elem),
                             color = style.color,
                             fill = style.fill,
@@ -107,6 +104,7 @@ function(
                             if (background === "image") {
                                 ratingString = "Needs manual review";
                                 fontSizeString = "N/A";
+                                var ratio = 'none';
                                 failed = true;
                             } else {
                                 var ratio = Math.round(contrast.contrastRatio(color, background) * 100) / 100,
@@ -133,6 +131,8 @@ function(
                                     }
                                 }
                             }
+                        } else {
+                            return '';
                         }
 
                         // highlight the element in the DOM and log the element, contrast ratio and failure
@@ -146,15 +146,23 @@ function(
                                 status: ratingString
                             };
                             if(ratingString === "fail"){
-                                contrastErrors.errors.push(error);
+                                contrastResults.errors.push(error);
                             } else if (ratingString === "Needs manual review"){
-                                contrastErrors.warnings.push(error);
+                                contrastResults.warnings.push(error);
                             }
+                        } else {
+                            var success = {
+                                name: elem,
+                                ratio: ratioText,
+                                detail: fontSizeString,
+                                status: ratingString
+                            };
+                            contrastResults.success.push(success);
                         }
-                    }
+                    //}
                 })(i);
             }
-            return contrastErrors;
+            return contrastResults;
         }
     };
 
@@ -167,17 +175,23 @@ function(
         $('[data-action="contrastcheck"]').each(function() {
             var element = $(this)[0];
             contrast.check(element);
-            for (var i = 0; i < contrastErrors.errors.length; i++) {
-                var item = contrastErrors.errors[i];
+            for (var i = 0; i < contrastResults.errors.length; i++) {
+                var item = contrastResults.errors[i];
                 $(item.name).append('<span class="badge badge-danger border border-dark m-1">' + item.ratio + '</span>');
             }
 
-            for (var i = 0; i < contrastErrors.warnings.length; i++) {
-                var item = contrastErrors.warnings[i];
+            for (var i = 0; i < contrastResults.warnings.length; i++) {
+                var item = contrastResults.warnings[i];
                 $(item.name).append('<span class="badge badge-warning border border-dark m-1">' + item.ratio + '</span>');
             }
-            contrastErrors.errors = [];
-            contrastErrors.warnings = [];
+
+            for (var i = 0; i < contrastResults.success.length; i++) {
+                var item = contrastResults.success[i];
+                $(item.name).append('<span class="badge badge-success border border-dark m-1">' + item.ratio + '</span>');
+            }
+            contrastResults.errors = [];
+            contrastResults.warnings = [];
+            contrastResults.success = [];
         });
     };
 
