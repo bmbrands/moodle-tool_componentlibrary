@@ -1,12 +1,15 @@
 {{ partial "skippy" . }}
 
-<div class="container-fluid bg-white" data-region="componentlibrary">
-    <div class="row flex-xl-nowrap">
-        <div class="col-md-3 sidebar">
+<div class="container-fluid p-0 bg-white" data-region="componentlibrary">
+    <div class="row no-gutters flex-xl-nowrap">
+        <div class="col-md-3 col-lg-2 sidebar">
             {{ partial "docs-sidebar" . }}
         </div>
-
-        <div class="col-md-9 py-md-3 pl-md-5 bd-content">
+        {{ if (eq .Page.Params.toc true) }}
+        <div class="col-md-7 col-lg-8 py-md-3 pl-md-3 pr-md-3 bd-content">
+        {{ else }}
+        <div class="col-md-9 col-lg-10 py-md-3 pl-md-5 pr-md-5 bd-content">
+        {{ end }}
             <h1 class="bd-title" id="content">{{ .Title | markdownify }}</h1>
             <p class="bd-lead">{{ .Page.Params.Description | markdownify }}</p>
 
@@ -23,14 +26,14 @@
                 </div>
             {{ end }}
 
-            {{ if (eq .Page.Params.toc true) }}
-                <strong class="d-block h3 mt-5 mb-3">On this page</strong>
-                <nav class="bd-toc mb-5" aria-label="Secondary navigation">
-                    {{ .TableOfContents }}
-                </nav>
-            {{ end }}
-
             {{ .Content }}
         </div>
+        {{ if (eq .Page.Params.toc true) }}
+        <div class="col-md-2 col-lg-2">
+            <div class="sticky-top" aria-label="Secondary navigation"  style="overflow-y: auto; height: 100vh;">
+                {{ .TableOfContents }}
+            </div>
+        </div>
+        {{ end }}
     </div>
 </div>

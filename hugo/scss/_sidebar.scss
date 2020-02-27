@@ -52,6 +52,7 @@
 .sidebar .active > a {
   background: #eee;
   border-left: solid 4px #ccc;
+  font-weight: bold;
 }
 
 .sidebar .slide-menu .has-sub-menu:not(.parent) ul {
@@ -75,3 +76,29 @@
 .sidebar-footer {
   padding: 1.28rem;
 }
+
+
+#TableOfContents > ul {
+  font-size: 90%;
+  padding-left: 0;
+  border-left: 1px solid #eee;
+
+  ul {
+    padding-left: 1rem;
+  }
+  li {
+    display: block;
+
+    a {
+      display: block;
+      padding: .125rem 1.5rem;
+      color: #77757a;
+
+      &:hover {
+        color: $blue;
+        text-decoration: none;
+      }
+    }
+  }
+}
+

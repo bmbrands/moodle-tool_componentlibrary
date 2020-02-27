@@ -6,23 +6,6 @@
  * For details, see https://creativecommons.org/licenses/by/3.0/.
  */
 
-// Dev notes
-//
-// Background information on nomenclature and architecture decisions here.
-//
-// - Bootstrap functions, variables, and mixins are included for easy reuse.
-//   Doing so gives us access to the same core utilities provided by Bootstrap.
-//   For example, consistent media queries through those mixins.
-//
-// - Bootstrap's **docs variables** are prefixed with `$bd-`.
-//   These custom colors avoid collision with the components Bootstrap provides.
-//
-// - Classes are prefixed with `.bd-`.
-//   These classes indicate custom-built or modified components for the design
-//   and layout of the Bootstrap docs. They are not included in our builds.
-//
-// Happy Bootstrapping!
-
 // Load Bootstrap variables and mixins
 
 @import "../../../theme/boost/scss/bootstrap/functions";
@@ -38,7 +21,6 @@
 @import "toc";
 @import "footer";
 @import "component-examples";
-@import "buttons";
 @import "callouts";
 @import "brand";
 @import "colors";
@@ -52,3 +34,4 @@
 
 // Accessibility
 @import "accessibility";
+@import "componentlibrary";

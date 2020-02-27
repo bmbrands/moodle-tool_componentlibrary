@@ -15,9 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Links and settings
- *
- * This file contains links and settings used by tool_componentlibrary
+ * Index redirect page.
  *
  * @package    tool_componentlibrary
  * @copyright  2020 Bas Brands <bas@moodle.com>
@@ -26,6 +24,6 @@
 
 require_once(__DIR__ . '/../../../config.php');
 
-$firstpage = new moodle_url('/admin/tool/componentlibrary/docspage.php/moodle-3.9/getting-started/introduction/');
+$firstpage = new moodle_url('/admin/tool/componentlibrary/docspage.php/moodle/getting-started/introduction/');
 
 redirect($firstpage);

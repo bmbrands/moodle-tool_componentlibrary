@@ -17,7 +17,7 @@
 /**
  * Moodle Component Library
  *
- * Servers the Hugo docs html pages.
+ * Serves the Hugo docs html pages.
  *
  * @package    tool_componentlibrary
  * @copyright  2020 Bas Brands <bas@moodle.com>
@@ -31,20 +31,20 @@ require_once($CFG->dirroot . '/lib/filelib.php');
 if (empty($relativepath)) {
     $relativepath = get_file_argument();
 }
+
 $args = explode('/', ltrim($relativepath, '/'));
 
 $docs = clean_param($args[0], PARAM_TEXT);
-$version = clean_param($args[1], PARAM_TEXT);
-$folder = clean_param($args[2], PARAM_TEXT);
-$page = clean_param($args[3], PARAM_TEXT);
+$folder = clean_param($args[1], PARAM_TEXT);
+$section = clean_param($args[2], PARAM_TEXT);
 
 $docsdir = '/admin/tool/componentlibrary/docs/';
 $cssfile = '/admin/tool/componentlibrary/hugo/dist/css/docs.css';
-
-if ($docs == 'bootstrap-4.3') {
-    $docspage = $CFG->dirroot . $docsdir . 'bootstrap-4.3/' . $version . '/' . $folder . '/' . $page . '/index.html';
-} else if ($docs == 'moodle-3.9') {
-    $docspage = $CFG->dirroot . $docsdir . 'moodle-3.9/' . $version . '/' . $folder . '/' . $page . '/index.html';
+$docspage = '';
+if ($docs == 'bootstrap') {
+    $docspage = $CFG->dirroot . $docsdir . 'bootstrap/' . $folder . '/' . $section . '/index.html';
+} else if ($docs == 'moodle') {
+    $docspage = $CFG->dirroot . $docsdir . 'moodle/' . $folder . '/' . $section . '/index.html';
 }
 
 $PAGE->set_pagelayout('embedded');
@@ -92,7 +92,7 @@ if (file_exists($docspage)) {
     $filtered = str_replace('MOODLESITE', $CFG->wwwroot, $page);
     echo $filtered;
 } else {
-    $firstpage = new moodle_url('/admin/tool/componentlibrary/docspage.php/moodle-3.9/getting-started/introduction/');
+    $firstpage = new moodle_url('/admin/tool/componentlibrary/docspage.php/moodle/getting-started/introduction/');
     redirect($firstpage);
 }
 

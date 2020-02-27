@@ -18,7 +18,7 @@
  * Strings for component 'tool_componentlibrary', language 'en'
  *
  * @package    tool_componentlibrary
- * @copyright  2018 Bas Brands <bas@moodle.com>
+ * @copyright  2020 Bas Brands <bas@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

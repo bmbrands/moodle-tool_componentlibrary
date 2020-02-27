@@ -17,10 +17,10 @@
  * Plugin version info
  *
  * @package    tool_componentlibrary
- * @copyright  2018 Bas Brands <bas@moodle.com>
+ * @copyright  2020 Bas Brands <bas@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
-$plugin->version   = 2019121200; // The current plugin version (Date: YYYYMMDDXX).
-$plugin->requires  = 2019052001; // Requires this Moodle version.
-$plugin->component = 'tool_componentlibrary'; // Full name of the plugin (used for diagnostics).
+$plugin->version   = 2019121200;
+$plugin->requires  = 2019052001;
+$plugin->component = 'tool_componentlibrary';
