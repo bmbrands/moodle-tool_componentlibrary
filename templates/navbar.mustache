@@ -35,7 +35,6 @@
 }}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100">
     <a class="navbar-brand" href="{{{ homeurl }}}">{{# str }}home, core{{/ str }}</a>
-    {{#hasthemes}}
     <form class="form-inline mr-auto" method="get" action="{{{ posturl }}}">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
@@ -44,11 +43,15 @@
                     {{#themes}}
                     <input type="submit" class="dropdown-item" name="theme" value="{{ name }}">
                     {{/themes}}
+                     {{#hasthemes}}
+                    <div class="dropdown-item">
+                        {{# str }}urlswitchurlwarning, tool_componentlibrary{{/ str }}
+                    </div>
+                    {{/hasthemes}}
                 </div>
             </li>
         </ul>
     </form>
-    {{/hasthemes}}
     <form class="form-inline my-2 my-lg-0">
         <div data-region="docsearch" class="dropdown">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -59,9 +62,6 @@
     </form>
 
 </nav>
-{{^hasthemes}}
-<p>{{# str }}urlswitchurlwarning, tool_componentlibrary{{/ str }}</p>
-{{/hasthemes}}
 {{#js}}
 require(
 [

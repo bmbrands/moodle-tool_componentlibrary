@@ -13,31 +13,31 @@ Images that need to be show in the component library should be placed in a separ
 The Markdown file for this page is located here:
 
 ```
-├── content
-     ├── moodle
-         ├── getting-started
-            ├── adding-images.md
+└── content
+     └── moodle
+         └── getting-started
+            └── adding-images.md
 ```
 
 To access images for this page create a new folder here.
 
 ```
-├── static
-     |── moodle
-         ├── getting-started
-            ├── adding-images
+└── static
+     └── moodle
+         └── getting-started
+            └── adding-images
 ```
 
 Place your images in this new folder:
 
 ```
-├── static
-     ├── moodle
-         ├── getting-started
-            ├── adding-images
+└── static
+     └── moodle
+         └── getting-started
+            └── adding-images
                 ├── wildebeest-1200.jpg
                 ├── kitten1.png
-                ├── kitten2.png
+                └── kitten2.png
 ```
 
 To use images use this syntax:

@@ -19,6 +19,13 @@ Either install this plugin using Moodle's plugin installation interface or unzip
 your Moodle's admin/tools folder. Ensure the extracted folder name is called
 componentlibrary.
 
+cd admin/tool/
+
+git clone git@github.com:bmbrands/moodle-tool_componentlibrary.git componentlibrary
+
+1st thing needed : allowthemechangeonurl => explain better + make notification
+
+
 Once installed you can find the component library navigating to
 Site Administration > Development > Component Library
 

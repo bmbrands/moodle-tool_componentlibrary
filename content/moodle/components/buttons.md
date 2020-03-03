@@ -5,6 +5,7 @@ date: 2020-01-14T16:32:24+01:00
 draft: false
 ---
 
+
 ## Button types
 
 Button components are available as part of a Moodle form, as a single button functioning as a form submit or triggering a JavaScript action.
@@ -44,7 +45,6 @@ Us primary buttons for the positive action on the page, for example "Save" or "S
 				</div>
 			</div>
 		</div>
-		<div class="alert alert-success">Avoid generic 'OK' or 'Yes', avoid confusing phrases</div>
 	</div>
 </div>
 {{< /example >}}
