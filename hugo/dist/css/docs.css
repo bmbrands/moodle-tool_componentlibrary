@@ -182,6 +182,10 @@ div[role="main"] {
   padding: 1.28rem;
 }
 
+.sticky-top.secondnav {
+  z-index: 0;
+}
+
 #TableOfContents > ul {
   font-size: 90%;
   padding-left: 0;

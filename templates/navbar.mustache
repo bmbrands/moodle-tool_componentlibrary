@@ -43,7 +43,7 @@
                     {{#themes}}
                     <input type="submit" class="dropdown-item" name="theme" value="{{ name }}">
                     {{/themes}}
-                     {{#hasthemes}}
+                    {{^hasthemes}}
                     <div class="dropdown-item">
                         {{# str }}urlswitchurlwarning, tool_componentlibrary{{/ str }}
                     </div>

@@ -78,7 +78,11 @@
   </url>
   <url>
     <loc>http://MOODLEROOT/</loc>
-    <lastmod>2020-03-02T16:32:24+01:00</lastmod>
+    <lastmod>2020-03-03T10:13:29+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://MOODLEROOT/moodle/components/breadcrumbs/</loc>
+    <lastmod>2020-03-03T10:13:29+01:00</lastmod>
   </url>
   <url>
     <loc>http://MOODLEROOT/moodle/components/footer/</loc>
