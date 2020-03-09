@@ -32,12 +32,11 @@
   
 <ul id="collapsee74fae0ce25d18ab8db372c1fbe8aff4" class="sub-menu collapse ">
 <li class=""><a href="http://MOODLEROOT/moodle/components/introduction/">Introduction</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/breadcrumbs/">Breadcrumb navigation</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/footer/">Footer</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/icons/">Moodle icons</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/example/">Example</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/components/buttons/">Buttons</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/components/coursecards/">Course cards</a></li>
+<li class=""><a href="http://MOODLEROOT/moodle/components/footer/">Footer</a></li>
+<li class=""><a href="http://MOODLEROOT/moodle/components/moodle-icons/">Moodle icons</a></li>
+<li class=""><a href="http://MOODLEROOT/moodle/components/notification/">Notification</a></li>
 </ul>
   
 </li>
@@ -46,7 +45,6 @@
   
 <ul id="collapse2deb5d1f39ceccabee606a451a2aff3f" class="sub-menu collapse ">
 <li class=""><a href="http://MOODLEROOT/moodle/javascript/emojipicker/">Emojipicker</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/javascript/notification/">Notification</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/javascript/sortable-list/">Sortable list</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/javascript/charts/">Moodle Charts</a></li>
 </ul>
@@ -211,20 +209,20 @@
 <p>Please run <code>npm install</code> in the $moodleroot/admin/tools/componentlibrary folder to fetch all requirements for contributing to this library.</p>
 <p>Once all requirements are installed you all you need to do is run <code>npm run start</code> to create the component library pages.</p>
 <h2 id="location-of-markdown-files">Location of Markdown files</h2>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">├── content
-│   ├── bootstrap
-│   ├── moodle
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">└── content
+    ├─ bootstrap
+    └─ moodle
 </code></pre></div><h2 id="html-output-folder">HTML output folder</h2>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">├── docs
 </code></pre></div><h2 id="page-setup-using-the-hugo-static-site-builder">Page setup using the Hugo static site builder</h2>
 <p>If you have run <code>npm install</code> the hugo static site builder for creating this library is found in your node_modules folder.</p>
 <p>The hugo config file can be found in /admin/tool/componentlibrary/config.yml</p>
 <p>The HTML and CSS for the component library pages are found here:</p>
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">├── hugo
-│   ├── archetypes
-│   ├── dist
-│   ├── scss
-│   ├── site
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">└─── hugo
+    ├── archetypes
+    ├── dist
+    ├── scss
+    └─- site
 </code></pre></div><p><code>archetypes</code> are template markdown files used when creating a new hugo page.</p>
 <p><code>dist</code> CSS and JavaScript for use in Hugo pages</p>
 <p><code>scss</code> The SCSS used to generate the docs css for the Component Library.</p>

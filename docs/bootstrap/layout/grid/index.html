@@ -32,12 +32,11 @@
   
 <ul id="collapsee74fae0ce25d18ab8db372c1fbe8aff4" class="sub-menu collapse ">
 <li class=""><a href="http://MOODLEROOT/moodle/components/introduction/">Introduction</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/breadcrumbs/">Breadcrumb navigation</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/footer/">Footer</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/icons/">Moodle icons</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/example/">Example</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/components/buttons/">Buttons</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/components/coursecards/">Course cards</a></li>
+<li class=""><a href="http://MOODLEROOT/moodle/components/footer/">Footer</a></li>
+<li class=""><a href="http://MOODLEROOT/moodle/components/moodle-icons/">Moodle icons</a></li>
+<li class=""><a href="http://MOODLEROOT/moodle/components/notification/">Notification</a></li>
 </ul>
   
 </li>
@@ -46,7 +45,6 @@
   
 <ul id="collapse2deb5d1f39ceccabee606a451a2aff3f" class="sub-menu collapse ">
 <li class=""><a href="http://MOODLEROOT/moodle/javascript/emojipicker/">Emojipicker</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/javascript/notification/">Notification</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/javascript/sortable-list/">Sortable list</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/javascript/charts/">Moodle Charts</a></li>
 </ul>
@@ -243,7 +241,7 @@
 <li>Column classes indicate the number of columns you'd like to use out of the possible 12 per row. So, if you want three equal-width columns across, you can use <code>.col-4</code>.</li>
 <li>Column <code>width</code>s are set in percentages, so they're always fluid and sized relative to their parent element.</li>
 <li>Columns have horizontal <code>padding</code> to create the gutters between individual columns, however, you can remove the <code>margin</code> from rows and <code>padding</code> from columns with <code>.no-gutters</code> on the <code>.row</code>.</li>
-<li>To make the grid responsive, there are five grid breakpoints, one for each <a href="MOODLEROOT/bootstrap/layout/overview/#responsive-breakpoints">responsive breakpoint</a>: all breakpoints (extra small), small, medium, large, and extra large.</li>
+<li>To make the grid responsive, there are five grid breakpoints, one for each <a href="../../../bootstrap/layout/overview/#responsive-breakpoints">responsive breakpoint</a>: all breakpoints (extra small), small, medium, large, and extra large.</li>
 <li>Grid breakpoints are based on minimum width media queries, meaning <strong>they apply to that one breakpoint and all those above it</strong> (e.g., <code>.col-sm-4</code> applies to small, medium, large, and extra large devices, but not the first <code>xs</code> breakpoint).</li>
 <li>You can use predefined grid classes (like <code>.col-4</code>) or <a href="#sass-mixins">Sass mixins</a> for more semantic markup.</li>
 </ul>
@@ -360,7 +358,7 @@
   <span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">div</span><span style="color:#111">&gt;</span>
 <span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">div</span><span style="color:#111">&gt;</span></code></pre></div>
 <h3 id="equal-width-multi-line">Equal-width multi-line</h3>
-<p>Create equal-width columns that span multiple lines by inserting a <code>.w-100</code> where you want the columns to break to a new line. Make the breaks responsive by mixing <code>.w-100</code> with some <a href="MOODLEROOT/bootstrap/utilities/display/">responsive display utilities</a>.</p>
+<p>Create equal-width columns that span multiple lines by inserting a <code>.w-100</code> where you want the columns to break to a new line. Make the breaks responsive by mixing <code>.w-100</code> with some <a href="../../../bootstrap/utilities/display/">responsive display utilities</a>.</p>
 <p>There was a <a href="https://github.com/philipwalton/flexbugs#flexbug-11">Safari flexbox bug</a> that prevented this from working without an explicit <code>flex-basis</code> or <code>border</code>. There are workarounds for older browser versions, but they shouldn't be necessary if your target browsers don't fall into the buggy versions.</p>
 <div class="bd-example bd-example-row">
 <div class="container">
@@ -883,7 +881,7 @@
 <span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">div</span><span style="color:#111">&gt;</span></code></pre></div>
 <h3 id="no-gutters">No gutters</h3>
 <p>The gutters between columns in our predefined grid classes can be removed with <code>.no-gutters</code>. This removes the negative <code>margin</code>s from <code>.row</code> and the horizontal <code>padding</code> from all immediate children columns.</p>
-<p>Here's the source code for creating these styles. Note that column overrides are scoped to only the first children columns and are targeted via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors">attribute selector</a>. While this generates a more specific selector, column padding can still be further customized with <a href="MOODLEROOT/bootstrap/utilities/spacing/">spacing utilities</a>.</p>
+<p>Here's the source code for creating these styles. Note that column overrides are scoped to only the first children columns and are targeted via <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors">attribute selector</a>. While this generates a more specific selector, column padding can still be further customized with <a href="../../../bootstrap/utilities/spacing/">spacing utilities</a>.</p>
 <p><strong>Need an edge-to-edge design?</strong> Drop the parent <code>.container</code> or <code>.container-fluid</code>.</p>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scss" data-lang="scss"><span style="color:#75af00">.</span><span style="color:#75af00">no-gutters</span> <span style="color:#111">{</span>
   <span style="color:#f92672">margin-right</span><span style="color:#75af00">:</span> <span style="color:#f92672">0</span><span style="color:#111">;</span>
@@ -949,7 +947,7 @@
     <span style="color:#111">&lt;</span><span style="color:#f92672">div</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;col-6 col-sm-3&#34;</span><span style="color:#111"></span><span style="color:#111">&gt;</span>.col-6 .col-sm-3<span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">div</span><span style="color:#111">&gt;</span>
   <span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">div</span><span style="color:#111">&gt;</span>
 <span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">div</span><span style="color:#111">&gt;</span></code></pre></div>
-<p>You may also apply this break at specific breakpoints with our <a href="MOODLEROOT/bootstrap/utilities/display/">responsive display utilities</a>.</p>
+<p>You may also apply this break at specific breakpoints with our <a href="../../../bootstrap/utilities/display/">responsive display utilities</a>.</p>
 <div class="bd-example bd-example-row">
 <div class="container">
   <div class="row">
@@ -1034,7 +1032,7 @@
   <span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">div</span><span style="color:#111">&gt;</span>
 <span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">div</span><span style="color:#111">&gt;</span></code></pre></div>
 <h3 id="offsetting-columns">Offsetting columns</h3>
-<p>You can offset grid columns in two ways: our responsive <code>.offset-</code> grid classes and our <a href="MOODLEROOT/bootstrap/utilities/spacing/">margin utilities</a>. Grid classes are sized to match columns while margins are more useful for quick layouts where the width of the offset is variable.</p>
+<p>You can offset grid columns in two ways: our responsive <code>.offset-</code> grid classes and our <a href="../../../bootstrap/utilities/spacing/">margin utilities</a>. Grid classes are sized to match columns while margins are more useful for quick layouts where the width of the offset is variable.</p>
 <h4 id="offset-classes">Offset classes</h4>
 <p>Move columns to the right using <code>.offset-md-*</code> classes. These classes increase the left margin of a column by <code>*</code> columns. For example, <code>.offset-md-4</code> moves <code>.col-md-4</code> over four columns.</p>
 <div class="bd-example bd-example-row">

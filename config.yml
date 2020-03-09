@@ -1,7 +1,7 @@
 languageCode:           "en"
-title:                  "Bootstrap"
+title:                  "Moodle Component Library"
 baseURL:                "http://MOODLEROOT/"
-enableInlineShortcodes: true
+enableInlineShortcodes:  true
 
 markup:
   goldmark:
@@ -64,7 +64,7 @@ disableKinds:           ["404", "taxonomy", "taxonomyTerm", "RSS"]
 blackfriday:
   fractions:            false
 
-relativeURLs:           false
+relativeURLs:           true
 
 publishDir:             "./docs"
 

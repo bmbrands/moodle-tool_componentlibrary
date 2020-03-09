@@ -32,12 +32,11 @@
   
 <ul id="collapsee74fae0ce25d18ab8db372c1fbe8aff4" class="sub-menu collapse ">
 <li class=""><a href="http://MOODLEROOT/moodle/components/introduction/">Introduction</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/breadcrumbs/">Breadcrumb navigation</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/footer/">Footer</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/icons/">Moodle icons</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/example/">Example</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/components/buttons/">Buttons</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/components/coursecards/">Course cards</a></li>
+<li class=""><a href="http://MOODLEROOT/moodle/components/footer/">Footer</a></li>
+<li class=""><a href="http://MOODLEROOT/moodle/components/moodle-icons/">Moodle icons</a></li>
+<li class=""><a href="http://MOODLEROOT/moodle/components/notification/">Notification</a></li>
 </ul>
   
 </li>
@@ -46,7 +45,6 @@
   
 <ul id="collapse2deb5d1f39ceccabee606a451a2aff3f" class="sub-menu collapse ">
 <li class=""><a href="http://MOODLEROOT/moodle/javascript/emojipicker/">Emojipicker</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/javascript/notification/">Notification</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/javascript/sortable-list/">Sortable list</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/javascript/charts/">Moodle Charts</a></li>
 </ul>
@@ -256,7 +254,7 @@ The base <code>.nav</code> component does not include any <code>.active</code> s
 <h2 id="available-styles">Available styles</h2>
 <p>Change the style of <code>.nav</code>s component with modifiers and utilities. Mix and match as needed, or build your own.</p>
 <h3 id="horizontal-alignment">Horizontal alignment</h3>
-<p>Change the horizontal alignment of your nav with <a href="MOODLEROOT/bootstrap/layout/grid/#horizontal-alignment">flexbox utilities</a>. By default, navs are left-aligned, but you can easily change them to center or right aligned.</p>
+<p>Change the horizontal alignment of your nav with <a href="../../../bootstrap/layout/grid/#horizontal-alignment">flexbox utilities</a>. By default, navs are left-aligned, but you can easily change them to center or right aligned.</p>
 <p>Centered with <code>.justify-content-center</code>:</p>
 <div class="bd-example">
 <ul class="nav justify-content-center">
@@ -515,7 +513,7 @@ The base <code>.nav</code> component does not include any <code>.active</code> s
   <span style="color:#111">&lt;</span><span style="color:#f92672">a</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;nav-item nav-link disabled&#34;</span> <span style="color:#75af00">href</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;#&#34;</span> <span style="color:#75af00">tabindex</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;-1&#34;</span> <span style="color:#75af00">aria-disabled</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;true&#34;</span><span style="color:#111"></span><span style="color:#111">&gt;</span>Disabled<span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">a</span><span style="color:#111">&gt;</span>
 <span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">nav</span><span style="color:#111">&gt;</span></code></pre></div>
 <h2 id="working-with-flex-utilities">Working with flex utilities</h2>
-<p>If you need responsive nav variations, consider using a series of <a href="MOODLEROOT/bootstrap/utilities/flex/">flexbox utilities</a>. While more verbose, these utilities offer greater customization across responsive breakpoints. In the example below, our nav will be stacked on the lowest breakpoint, then adapt to a horizontal layout that fills the available width starting from the small breakpoint.</p>
+<p>If you need responsive nav variations, consider using a series of <a href="../../../bootstrap/utilities/flex/">flexbox utilities</a>. While more verbose, these utilities offer greater customization across responsive breakpoints. In the example below, our nav will be stacked on the lowest breakpoint, then adapt to a horizontal layout that fills the available width starting from the small breakpoint.</p>
 <div class="bd-example">
 <nav class="nav nav-pills flex-column flex-sm-row">
   <a class="flex-sm-fill text-sm-center nav-link active" href="#">Active</a>
@@ -533,7 +531,7 @@ The base <code>.nav</code> component does not include any <code>.active</code> s
 <p>If you're using navs to provide a navigation bar, be sure to add a <code>role=&quot;navigation&quot;</code> to the most logical parent container of the <code>&lt;ul&gt;</code>, or wrap a <code>&lt;nav&gt;</code> element around the whole navigation. Do not add the role to the <code>&lt;ul&gt;</code> itself, as this would prevent it from being announced as an actual list by assistive technologies.</p>
 <p>Note that navigation bars, even if visually styled as tabs with the <code>.nav-tabs</code> class, should <strong>not</strong> be given <code>role=&quot;tablist&quot;</code>, <code>role=&quot;tab&quot;</code> or <code>role=&quot;tabpanel&quot;</code> attributes. These are only appropriate for dynamic tabbed interfaces, as described in the <a href="https://www.w3.org/TR/wai-aria-practices/#tabpanel"><abbr title="Web Accessibility Initiative">WAI</abbr> <abbr title="Accessible Rich Internet Applications">ARIA</abbr> Authoring Practices</a>. See <a href="#javascript-behavior">JavaScript behavior</a> for dynamic tabbed interfaces in this section for an example.</p>
 <h2 id="using-dropdowns">Using dropdowns</h2>
-<p>Add dropdown menus with a little extra HTML and the <a href="MOODLEROOT/bootstrap/components/dropdowns/#usage">dropdowns JavaScript plugin</a>.</p>
+<p>Add dropdown menus with a little extra HTML and the <a href="../../../bootstrap/components/dropdowns/#usage">dropdowns JavaScript plugin</a>.</p>
 <h3 id="tabs-with-dropdowns">Tabs with dropdowns</h3>
 <div class="bd-example">
 <ul class="nav nav-tabs">
@@ -843,7 +841,7 @@ The base <code>.nav</code> component does not include any <code>.active</code> s
 <div class="bd-callout bd-callout-danger">
 <h4 id="asynchronous-methods-and-transitions">Asynchronous methods and transitions</h4>
 <p>All API methods are <strong>asynchronous</strong> and start a <strong>transition</strong>. They return to the caller as soon as the transition is started but <strong>before it ends</strong>. In addition, a method call on a <strong>transitioning component will be ignored</strong>.</p>
-<p><a href="/docs/4.4/getting-started/javascript/">See our JavaScript documentation for more information</a>.</p>
+<p><a href="../../../docs/4.4/getting-started/javascript/">See our JavaScript documentation for more information</a>.</p>
 
 </div>
 

@@ -32,12 +32,11 @@
   
 <ul id="collapsee74fae0ce25d18ab8db372c1fbe8aff4" class="sub-menu collapse ">
 <li class=""><a href="http://MOODLEROOT/moodle/components/introduction/">Introduction</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/breadcrumbs/">Breadcrumb navigation</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/footer/">Footer</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/icons/">Moodle icons</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/example/">Example</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/components/buttons/">Buttons</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/components/coursecards/">Course cards</a></li>
+<li class=""><a href="http://MOODLEROOT/moodle/components/footer/">Footer</a></li>
+<li class=""><a href="http://MOODLEROOT/moodle/components/moodle-icons/">Moodle icons</a></li>
+<li class=""><a href="http://MOODLEROOT/moodle/components/notification/">Notification</a></li>
 </ul>
   
 </li>
@@ -46,7 +45,6 @@
   
 <ul id="collapse2deb5d1f39ceccabee606a451a2aff3f" class="sub-menu collapse ">
 <li class=""><a href="http://MOODLEROOT/moodle/javascript/emojipicker/">Emojipicker</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/javascript/notification/">Notification</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/javascript/sortable-list/">Sortable list</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/javascript/charts/">Moodle Charts</a></li>
 </ul>
@@ -210,7 +208,7 @@
 <li>Clicking on the modal &ldquo;backdrop&rdquo; will automatically close the modal.</li>
 <li>Bootstrap only supports one modal window at a time. Nested modals aren't supported as we believe them to be poor user experiences.</li>
 <li>Modals use <code>position: fixed</code>, which can sometimes be a bit particular about its rendering. Whenever possible, place your modal HTML in a top-level position to avoid potential interference from other elements. You'll likely run into issues when nesting a <code>.modal</code> within another fixed element.</li>
-<li>Once again, due to <code>position: fixed</code>, there are some caveats with using modals on mobile devices. <a href="MOODLEROOT/bootstrap/getting-started/browsers-devices/#modals-and-dropdowns-on-mobile">See our browser support docs</a> for details.</li>
+<li>Once again, due to <code>position: fixed</code>, there are some caveats with using modals on mobile devices. <a href="../../../bootstrap/getting-started/browsers-devices/#modals-and-dropdowns-on-mobile">See our browser support docs</a> for details.</li>
 <li>Due to how HTML5 defines its semantics, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autofocus">the <code>autofocus</code> HTML attribute</a> has no effect in Bootstrap modals. To achieve the same effect, use some custom JavaScript:</li>
 </ul>
 <div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#00a8c8">var</span> <span style="color:#75af00">myModal</span> <span style="color:#f92672">=</span> <span style="color:#111">document</span><span style="color:#111">.</span><span style="color:#75af00">getElementById</span><span style="color:#111">(</span><span style="color:#d88200">&#39;myModal&#39;</span><span style="color:#111">)</span>
@@ -221,7 +219,7 @@
 <span style="color:#111">}</span><span style="color:#111">)</span>
 </code></pre></div>
 <div class="bd-callout bd-callout-info">
-The animation effect of this component is dependent on the <code>prefers-reduced-motion</code> media query. See the <a href="/docs/4.4/getting-started/accessibility/#reduced-motion">reduced motion section of our accessibility documentation</a>.
+The animation effect of this component is dependent on the <code>prefers-reduced-motion</code> media query. See the <a href="../../../docs/4.4/getting-started/accessibility/#reduced-motion">reduced motion section of our accessibility documentation</a>.
 </div>
 
 <p>Keep reading for demos and usage guidelines.</p>
@@ -583,7 +581,7 @@ The animation effect of this component is dependent on the <code>prefers-reduced
   <span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">div</span><span style="color:#111">&gt;</span>
 <span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">div</span><span style="color:#111">&gt;</span></code></pre></div>
 <h3 id="tooltips-and-popovers">Tooltips and popovers</h3>
-<p><a href="MOODLEROOT/bootstrap/components/tooltips/">Tooltips</a> and <a href="MOODLEROOT/bootstrap/components/popovers/">popovers</a> can be placed within modals as needed. When modals are closed, any tooltips and popovers within are also automatically dismissed.</p>
+<p><a href="../../../bootstrap/components/tooltips/">Tooltips</a> and <a href="../../../bootstrap/components/popovers/">popovers</a> can be placed within modals as needed. When modals are closed, any tooltips and popovers within are also automatically dismissed.</p>
 <div id="exampleModalPopovers" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalPopoversLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -959,7 +957,7 @@ The animation effect of this component is dependent on the <code>prefers-reduced
 <div class="bd-callout bd-callout-danger">
 <h4 id="asynchronous-methods-and-transitions">Asynchronous methods and transitions</h4>
 <p>All API methods are <strong>asynchronous</strong> and start a <strong>transition</strong>. They return to the caller as soon as the transition is started but <strong>before it ends</strong>. In addition, a method call on a <strong>transitioning component will be ignored</strong>.</p>
-<p><a href="/docs/4.4/getting-started/javascript/">See our JavaScript documentation for more information</a>.</p>
+<p><a href="../../../docs/4.4/getting-started/javascript/">See our JavaScript documentation for more information</a>.</p>
 
 </div>
 

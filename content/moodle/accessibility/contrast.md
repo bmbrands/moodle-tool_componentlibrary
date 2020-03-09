@@ -1,6 +1,7 @@
 ---
 layout: docs
 title: "Contrast"
+description: "Moodle's use of colour in the Boost and classic themes and the impact it has on accessibility"
 date: 2020-02-04T09:40:32+01:00
 draft: false
 ---

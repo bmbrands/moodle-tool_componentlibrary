@@ -23,9 +23,9 @@ Once all requirements are installed you all you need to do is run `npm run start
 ## Location of Markdown files
 
 ```
-├── content
-│   ├── bootstrap
-│   ├── moodle
+└── content
+    ├─ bootstrap
+    └─ moodle
 ```
 
 ## HTML output folder
@@ -43,11 +43,11 @@ The hugo config file can be found in /admin/tool/componentlibrary/config.yml
 The HTML and CSS for the component library pages are found here:
 
 ```
-├── hugo
-│   ├── archetypes
-│   ├── dist
-│   ├── scss
-│   ├── site
+└─── hugo
+    ├── archetypes
+    ├── dist
+    ├── scss
+    └─- site
 ```
 
 `archetypes` are template markdown files used when creating a new hugo page.

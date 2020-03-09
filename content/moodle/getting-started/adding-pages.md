@@ -15,9 +15,9 @@ To add a page to the component library on your local machine navigate open your 
 
 ```
 └── content
-     └── moodle
-         └── components
-            └── breadcrumbs.md
+    └── moodle
+       └── components
+          └── breadcrumbs.md
 ```
 
 Open the file in your favourite editor and start it with some metadata, we call this syntax [frontmatter](https://gohugo.io/content-management/front-matter/).

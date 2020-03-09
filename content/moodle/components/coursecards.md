@@ -4,6 +4,7 @@ title: "Course cards"
 description: "Course cards are easy to access clickable components used in collections to navigate to the course home page."
 date: 2020-01-14T16:32:24+01:00
 draft: false
+weight: 20
 ---
 
 ## How it works

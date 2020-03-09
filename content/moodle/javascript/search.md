@@ -1,6 +1,7 @@
 ---
 layout: docs
 title: "Search"
+description: The Moodle search UI for any input form in Moodle designed for searching
 date: 2019-12-10T13:53:41+01:00
 draft: true
 ---

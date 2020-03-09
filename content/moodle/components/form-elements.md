@@ -1,6 +1,7 @@
 ---
 layout: docs
 title: "Form elements"
+description: "Custom form elements for Moodle"
 date: 2020-01-14T16:32:24+01:00
 draft: true
 ---
@@ -25,7 +26,7 @@ Form elements are styled using the .form-control class, see the [Bootstrap](/boo
         "label": null,
         "multiple": null,
         "checked": null,
-        "error": null,
+        "error": "You should check this box",
         "size": null,
         "value": 1,
         "type": "advcheckbox",
@@ -44,10 +45,10 @@ Form elements are styled using the .form-control class, see the [Bootstrap](/boo
     },
     "label": "Force password change",
     "text": null,
-    "required": false,
+    "required": true,
     "advanced": false,
     "helpbutton": "<a class=\u0022btn btn-link p-0\u0022 role=\u0022button\u0022\n    data-container=\u0022body\u0022 data-toggle=\u0022popover\u0022\n    data-placement=\u0022right\u0022 data-content=\u0022&lt;div class=&quot;no-overflow&quot;&gt;&lt;p&gt;If this checkbox is ticked, the user will be prompted to change their password on their next login&lt;\/p&gt;\n&lt;\/div&gt; \u0022\n    data-html=\u0022true\u0022 tabindex=\u00220\u0022 data-trigger=\u0022focus\u0022>\n  <i class=\u0022icon fa fa-question-circle text-info fa-fw \u0022  title=\u0022Help with Force password change\u0022 aria-label=\u0022Help with Force password change\u0022><\/i>\n<\/a>",
-    "error": null
+    "error": "Something is wrong"
 }
 {{< /mustachejson >}}
 

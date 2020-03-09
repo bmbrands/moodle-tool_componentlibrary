@@ -32,12 +32,11 @@
   
 <ul id="collapsee74fae0ce25d18ab8db372c1fbe8aff4" class="sub-menu collapse ">
 <li class=""><a href="http://MOODLEROOT/moodle/components/introduction/">Introduction</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/breadcrumbs/">Breadcrumb navigation</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/footer/">Footer</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/icons/">Moodle icons</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/example/">Example</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/components/buttons/">Buttons</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/components/coursecards/">Course cards</a></li>
+<li class=""><a href="http://MOODLEROOT/moodle/components/footer/">Footer</a></li>
+<li class=""><a href="http://MOODLEROOT/moodle/components/moodle-icons/">Moodle icons</a></li>
+<li class=""><a href="http://MOODLEROOT/moodle/components/notification/">Notification</a></li>
 </ul>
   
 </li>
@@ -46,7 +45,6 @@
   
 <ul id="collapse2deb5d1f39ceccabee606a451a2aff3f" class="sub-menu collapse ">
 <li class=""><a href="http://MOODLEROOT/moodle/javascript/emojipicker/">Emojipicker</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/javascript/notification/">Notification</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/javascript/sortable-list/">Sortable list</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/javascript/charts/">Moodle Charts</a></li>
 </ul>
@@ -207,7 +205,7 @@
 <p>Things to know when using the popover plugin:</p>
 <ul>
 <li>Popovers rely on the 3rd party library <a href="https://popper.js.org/">Popper.js</a> for positioning. You must include <a href="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js">popper.min.js</a> before bootstrap.js or use <code>bootstrap.bundle.min.js</code> / <code>bootstrap.bundle.js</code> which contains Popper.js in order for popovers to work!</li>
-<li>Popovers require the <a href="MOODLEROOT/bootstrap/components/tooltips/">tooltip plugin</a> as a dependency.</li>
+<li>Popovers require the <a href="../../../bootstrap/components/tooltips/">tooltip plugin</a> as a dependency.</li>
 <li>Popovers are opt-in for performance reasons, so <strong>you must initialize them yourself</strong>.</li>
 <li>Zero-length <code>title</code> and <code>content</code> values will never show a popover.</li>
 <li>Specify <code>container: 'body'</code> to avoid rendering problems in more complex components (like our input groups, button groups, etc).</li>
@@ -218,7 +216,7 @@
 <li>Popovers can be triggered thanks to an element inside a shadow DOM.</li>
 </ul>
 <div class="bd-callout bd-callout-info">
-The animation effect of this component is dependent on the <code>prefers-reduced-motion</code> media query. See the <a href="/docs/4.4/getting-started/accessibility/#reduced-motion">reduced motion section of our accessibility documentation</a>.
+The animation effect of this component is dependent on the <code>prefers-reduced-motion</code> media query. See the <a href="../../../docs/4.4/getting-started/accessibility/#reduced-motion">reduced motion section of our accessibility documentation</a>.
 </div>
 
 <p>Keep reading to see how popovers work with some examples.</p>
@@ -459,7 +457,7 @@ Note that for security reasons the <code>sanitize</code>, <code>sanitizeFn</code
 <div class="bd-callout bd-callout-danger">
 <h4 id="asynchronous-methods-and-transitions">Asynchronous methods and transitions</h4>
 <p>All API methods are <strong>asynchronous</strong> and start a <strong>transition</strong>. They return to the caller as soon as the transition is started but <strong>before it ends</strong>. In addition, a method call on a <strong>transitioning component will be ignored</strong>.</p>
-<p><a href="/docs/4.4/getting-started/javascript/">See our JavaScript documentation for more information</a>.</p>
+<p><a href="../../../docs/4.4/getting-started/javascript/">See our JavaScript documentation for more information</a>.</p>
 
 </div>
 

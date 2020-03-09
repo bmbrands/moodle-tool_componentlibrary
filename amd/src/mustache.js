@@ -70,9 +70,6 @@ define(['jquery', 'core/ajax', 'core/log', 'core/notification', 'core/templates'
      * @param {String} example JSON
      */
     var templateLoaded = function(root, templateName, source, originalSource, example) {
-        str.get_string('templateselected', 'tool_templatelibrary', templateName).done(function(s) {
-            $('[data-region="displaytemplateheader"]').text(s);
-        }).fail(notification.exception);
 
         root.find('[data-region="source"]').text(source);
 
@@ -99,7 +96,6 @@ define(['jquery', 'core/ajax', 'core/log', 'core/notification', 'core/templates'
                 context = JSON.parse(example);
             } catch (e) {
                 log.debug('Could not parse json example context for template.');
-                log.debug(example);
                 log.debug(e);
             }
         }

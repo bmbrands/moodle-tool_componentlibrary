@@ -3,7 +3,8 @@ layout: docs
 title: "Example"
 description: "This is an example page describing the example component"
 date: 2020-01-28T10:13:29+01:00
-draft: false
+draft: true
+weight: 30
 ---
 
 ## How it works

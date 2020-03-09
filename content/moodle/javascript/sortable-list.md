@@ -1,6 +1,7 @@
 ---
 layout: docs
 title: "Sortable list"
+description: "A reusable list component for sorting"
 date: 2020-02-04T09:40:32+01:00
 draft: false
 ---

@@ -32,12 +32,11 @@
   
 <ul id="collapsee74fae0ce25d18ab8db372c1fbe8aff4" class="sub-menu collapse show">
 <li class=""><a href="http://MOODLEROOT/moodle/components/introduction/">Introduction</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/breadcrumbs/">Breadcrumb navigation</a></li>
-<li class="active"><a href="http://MOODLEROOT/moodle/components/footer/">Footer</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/icons/">Moodle icons</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/example/">Example</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/components/buttons/">Buttons</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/components/coursecards/">Course cards</a></li>
+<li class="active"><a href="http://MOODLEROOT/moodle/components/footer/">Footer</a></li>
+<li class=""><a href="http://MOODLEROOT/moodle/components/moodle-icons/">Moodle icons</a></li>
+<li class=""><a href="http://MOODLEROOT/moodle/components/notification/">Notification</a></li>
 </ul>
   
 </li>
@@ -46,7 +45,6 @@
   
 <ul id="collapse2deb5d1f39ceccabee606a451a2aff3f" class="sub-menu collapse ">
 <li class=""><a href="http://MOODLEROOT/moodle/javascript/emojipicker/">Emojipicker</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/javascript/notification/">Notification</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/javascript/sortable-list/">Sortable list</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/javascript/charts/">Moodle Charts</a></li>
 </ul>
@@ -199,52 +197,40 @@
         <div class="col-md-9 col-lg-10 py-md-3 pl-md-5 pr-md-5 bd-content">
         
             <h1 class="bd-title" id="content">Footer</h1>
-            <p class="bd-lead"></p>
+            <p class="bd-lead">Moodle footer HTML and required code injected in the page footer</p>
 
             
 
             <h2 id="how-are-footers-implemented-in-moodle">How are footers implemented in Moodle?</h2>
-<p>Moodle</p>
+<p>The page footer is shown at the bottom of every page in Moodle, typically a Moodle footer contains links to:</p>
 <ul>
-<li>
-<p>Technical stuff</p>
-</li>
-<li>
-<p>Navigation</p>
-</li>
-<li>
-<p>Help</p>
-</li>
-<li>
-<p>User information</p>
-</li>
-<li>
-<p>Navigation</p>
-</li>
-<li>
-<p>Contact info</p>
-</li>
-<li>
-<p>Help and Support</p>
-</li>
-<li>
-<p>Legal</p>
-</li>
+<li>A link to the Moodle docs for the current page</li>
+<li>resetting user tours</li>
+<li>user login information</li>
+<li>a link to the Moodle homepage</li>
 </ul>
-<h2 id="why-use-a-footer">Why use a footer?</h2>
-<p>Less weight
-Extend navigation
-Accessibility</p>
-<h2 id="what-are-usually-the-properties-of-a-footer">What are usually the properties of a footer?</h2>
-<p>Bottom of the page
-Styled to have less weight (muted text, dark background)</p>
-<h3 id="what-is-the-html-code-for-a-footer-in-moodle">What is the HTML code for a footer in Moodle?</h3>
+<p>When the setting <code>perfdebug</code> is turned on (Site Administration &gt; Development &gt; Debugging) additional performance info is shown in the page footer.</p>
+<h2 id="footer-styling">Footer styling</h2>
+<p>Since footers are repeated on all pages they are styled distinctly using a dark background colour and light fonts. Links need to be underlined and use light fonts too.</p>
+<p>The page footer should always stick to the bottom of the page and never overlap any page content.</p>
+<h3 id="minimal-footer-requirements">Minimal footer requirements</h3>
+<p>The page footer is required to inject the page JavaScript, show the reset user tours link and show user info and (if avaliable) the contents of the user configure theme custom menu.</p>
 <div class="bd-example">
 <footer id="page-footer" class="py-3 bg-dark text-light">
-	Hello footer
+    <div class="container">
+		<p class="helplink"><a href="#">Moodle docs for this page</a></p>
+		You are logged in as <a href="#">Test User</a> (<a href="#">logout</a>)
+		<a href="#">Home</a>
+        <div class="tool_usertours-resettourcontainer"></div>
+    </div>
 </footer>
 </div><div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#111">&lt;</span><span style="color:#f92672">footer</span> <span style="color:#75af00">id</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;page-footer&#34;</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;py-3 bg-dark text-light&#34;</span><span style="color:#111"></span><span style="color:#111">&gt;</span>
-	Hello footer
+    <span style="color:#111">&lt;</span><span style="color:#f92672">div</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;container&#34;</span><span style="color:#111"></span><span style="color:#111">&gt;</span>
+		<span style="color:#111">&lt;</span><span style="color:#f92672">p</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;helplink&#34;</span><span style="color:#111"></span><span style="color:#111">&gt;</span><span style="color:#111">&lt;</span><span style="color:#f92672">a</span> <span style="color:#75af00">href</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;#&#34;</span><span style="color:#111"></span><span style="color:#111">&gt;</span>Moodle docs for this page<span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">a</span><span style="color:#111">&gt;</span><span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">p</span><span style="color:#111">&gt;</span>
+		You are logged in as <span style="color:#111">&lt;</span><span style="color:#f92672">a</span> <span style="color:#75af00">href</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;#&#34;</span><span style="color:#111"></span><span style="color:#111">&gt;</span>Test User<span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">a</span><span style="color:#111">&gt;</span> (<span style="color:#111">&lt;</span><span style="color:#f92672">a</span> <span style="color:#75af00">href</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;#&#34;</span><span style="color:#111"></span><span style="color:#111">&gt;</span>logout<span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">a</span><span style="color:#111">&gt;</span>)
+		<span style="color:#111">&lt;</span><span style="color:#f92672">a</span> <span style="color:#75af00">href</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;#&#34;</span><span style="color:#111"></span><span style="color:#111">&gt;</span>Home<span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">a</span><span style="color:#111">&gt;</span>
+        <span style="color:#111">&lt;</span><span style="color:#f92672">div</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;tool_usertours-resettourcontainer&#34;</span><span style="color:#111"></span><span style="color:#111">&gt;</span><span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">div</span><span style="color:#111">&gt;</span>
+    <span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">div</span><span style="color:#111">&gt;</span>
 <span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">footer</span><span style="color:#111">&gt;</span></code></pre></div>
 
         </div>

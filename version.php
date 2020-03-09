@@ -21,6 +21,6 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
-$plugin->version   = 2019121200;
+$plugin->version   = 2020030500;
 $plugin->requires  = 2019052001;
 $plugin->component = 'tool_componentlibrary';

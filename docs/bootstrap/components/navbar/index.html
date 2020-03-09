@@ -32,12 +32,11 @@
   
 <ul id="collapsee74fae0ce25d18ab8db372c1fbe8aff4" class="sub-menu collapse ">
 <li class=""><a href="http://MOODLEROOT/moodle/components/introduction/">Introduction</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/breadcrumbs/">Breadcrumb navigation</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/footer/">Footer</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/icons/">Moodle icons</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/components/example/">Example</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/components/buttons/">Buttons</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/components/coursecards/">Course cards</a></li>
+<li class=""><a href="http://MOODLEROOT/moodle/components/footer/">Footer</a></li>
+<li class=""><a href="http://MOODLEROOT/moodle/components/moodle-icons/">Moodle icons</a></li>
+<li class=""><a href="http://MOODLEROOT/moodle/components/notification/">Notification</a></li>
 </ul>
   
 </li>
@@ -46,7 +45,6 @@
   
 <ul id="collapse2deb5d1f39ceccabee606a451a2aff3f" class="sub-menu collapse ">
 <li class=""><a href="http://MOODLEROOT/moodle/javascript/emojipicker/">Emojipicker</a></li>
-<li class=""><a href="http://MOODLEROOT/moodle/javascript/notification/">Notification</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/javascript/sortable-list/">Sortable list</a></li>
 <li class=""><a href="http://MOODLEROOT/moodle/javascript/charts/">Moodle Charts</a></li>
 </ul>
@@ -208,12 +206,12 @@
 <ul>
 <li>Navbars require a wrapping <code>.navbar</code> with <code>.navbar-expand{-sm|-md|-lg|-xl}</code> for responsive collapsing and <a href="#color-schemes">color scheme</a> classes.</li>
 <li>Navbars and their contents are fluid by default. Change the <a href="#containers">container</a> to limit their horizontal width in different ways.</li>
-<li>Use our <a href="MOODLEROOT/bootstrap/utilities/spacing/">spacing</a> and <a href="MOODLEROOT/bootstrap/utilities/flex/">flex</a> utility classes for controlling spacing and alignment within navbars.</li>
+<li>Use our <a href="../../../bootstrap/utilities/spacing/">spacing</a> and <a href="../../../bootstrap/utilities/flex/">flex</a> utility classes for controlling spacing and alignment within navbars.</li>
 <li>Navbars are responsive by default, but you can easily modify them to change that. Responsive behavior depends on our Collapse JavaScript plugin.</li>
 <li>Ensure accessibility by using a <code>&lt;nav&gt;</code> element or, if using a more generic element such as a <code>&lt;div&gt;</code>, add a <code>role=&quot;navigation&quot;</code> to every navbar to explicitly identify it as a landmark region for users of assistive technologies.</li>
 </ul>
 <div class="bd-callout bd-callout-info">
-The animation effect of this component is dependent on the <code>prefers-reduced-motion</code> media query. See the <a href="/docs/4.4/getting-started/accessibility/#reduced-motion">reduced motion section of our accessibility documentation</a>.
+The animation effect of this component is dependent on the <code>prefers-reduced-motion</code> media query. See the <a href="../../../docs/4.4/getting-started/accessibility/#reduced-motion">reduced motion section of our accessibility documentation</a>.
 </div>
 
 <p>Read on for an example and list of supported sub-components.</p>
@@ -303,7 +301,7 @@ The animation effect of this component is dependent on the <code>prefers-reduced
     <span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">div</span><span style="color:#111">&gt;</span>
   <span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">div</span><span style="color:#111">&gt;</span>
 <span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">nav</span><span style="color:#111">&gt;</span></code></pre></div>
-<p>This example uses <a href="MOODLEROOT/bootstrap/utilities/colors/">color</a> (<code>bg-light</code>) and <a href="MOODLEROOT/bootstrap/utilities/spacing/">spacing</a> (<code>my-2</code>, <code>my-lg-0</code>, <code>mr-sm-0</code>, <code>my-sm-0</code>) utility classes.</p>
+<p>This example uses <a href="../../../bootstrap/utilities/colors/">color</a> (<code>bg-light</code>) and <a href="../../../bootstrap/utilities/spacing/">spacing</a> (<code>my-2</code>, <code>my-lg-0</code>, <code>mr-sm-0</code>, <code>my-sm-0</code>) utility classes.</p>
 <h3 id="brand">Brand</h3>
 <p>The <code>.navbar-brand</code> can be applied to most elements, but an anchor works best as some elements might require utility classes or custom styles.</p>
 <div class="bd-example">
@@ -339,7 +337,7 @@ The animation effect of this component is dependent on the <code>prefers-reduced
 <nav class="navbar navbar-light bg-light">
   <div class="container">
     <a class="navbar-brand" href="#">
-      <img src="/docs/4.4/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+      <img src="../../../docs/4.4/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
     </a>
   </div>
 </nav>
@@ -356,7 +354,7 @@ The animation effect of this component is dependent on the <code>prefers-reduced
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <img src="/docs/4.4/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+      <img src="../../../docs/4.4/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
       Bootstrap
     </a>
   </div>
@@ -539,7 +537,7 @@ The animation effect of this component is dependent on the <code>prefers-reduced
     <span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">form</span><span style="color:#111">&gt;</span>
   <span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">div</span><span style="color:#111">&gt;</span>
 <span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">nav</span><span style="color:#111">&gt;</span></code></pre></div>
-<p>Immediate children elements in <code>.navbar</code> use flex layout and will default to <code>justify-content: space-between</code>. Use additional <a href="MOODLEROOT/bootstrap/utilities/flex/">flex utilities</a> as needed to adjust this behavior.</p>
+<p>Immediate children elements in <code>.navbar</code> use flex layout and will default to <code>justify-content: space-between</code>. Use additional <a href="../../../bootstrap/utilities/flex/">flex utilities</a> as needed to adjust this behavior.</p>
 <div class="bd-example">
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
@@ -799,7 +797,7 @@ The animation effect of this component is dependent on the <code>prefers-reduced
   <span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">div</span><span style="color:#111">&gt;</span>
 <span style="color:#111">&lt;</span><span style="color:#111">/</span><span style="color:#f92672">nav</span><span style="color:#111">&gt;</span></code></pre></div>
 <h2 id="placement">Placement</h2>
-<p>Use our <a href="MOODLEROOT/bootstrap/utilities/position/">position utilities</a> to place navbars in non-static positions. Choose from fixed to the top, fixed to the bottom, or stickied to the top (scrolls with the page until it reaches the top, then stays there). Fixed navbars use <code>position: fixed</code>, meaning they're pulled from the normal flow of the DOM and may require custom CSS (e.g., <code>padding-top</code> on the <code>&lt;body&gt;</code>) to prevent overlap with other elements.</p>
+<p>Use our <a href="../../../bootstrap/utilities/position/">position utilities</a> to place navbars in non-static positions. Choose from fixed to the top, fixed to the bottom, or stickied to the top (scrolls with the page until it reaches the top, then stays there). Fixed navbars use <code>position: fixed</code>, meaning they're pulled from the normal flow of the DOM and may require custom CSS (e.g., <code>padding-top</code> on the <code>&lt;body&gt;</code>) to prevent overlap with other elements.</p>
 <p>Also note that <strong><code>.sticky-top</code> uses <code>position: sticky</code>, which <a href="https://caniuse.com/#feat=css-sticky">isn't fully supported in every browser</a></strong>.</p>
 <div class="bd-example">
 <nav class="navbar navbar-light bg-light">
