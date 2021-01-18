@@ -35,7 +35,7 @@ require_once($CFG->dirroot . '/lib/filelib.php');
 
 for ($i = 1; $i <= 10; $i++) {
     $image = $OUTPUT->get_generated_image_for_id($i);
-    $jsonfile = $CFG->dirroot . '/admin/tool/componentlibrary/content/static/moodle-3.9/components/coursecards/placeholder-' . $i .'.txt';
+    $jsonfile = $CFG->dirroot . '/admin/tool/componentlibrary/content/static/moodle/components/coursecards/placeholder-' . $i .'.txt';
      $fh = fopen($jsonfile, 'w');
  fwrite($fh, $image);
  fclose($fh);
