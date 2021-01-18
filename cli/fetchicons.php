@@ -70,6 +70,8 @@ if (!$admin) {
     die;
 }
 
+$CFG->wwwroot = 'http://MOODLEROOT';
+
 if ($options['icontype']) {
 	if ($options['icontype'] === 'fontawesome') {
 		$output = $PAGE->get_renderer('core');

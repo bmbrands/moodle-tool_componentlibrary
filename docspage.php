@@ -45,7 +45,10 @@ if ($docs == 'bootstrap') {
     $docspage = $CFG->dirroot . $docsdir . 'bootstrap/' . $folder . '/' . $section . '/index.html';
 } else if ($docs == 'moodle') {
     $docspage = $CFG->dirroot . $docsdir . 'moodle/' . $folder . '/' . $section . '/index.html';
+} else if ($docs == 'theme' && strpos($folder, '.php') !== false) {
+    redirect(new moodle_url($relativepath));
 }
+
 
 $PAGE->set_pagelayout('embedded');
 $thispageurl = new moodle_url('/admin/tool/componentlibrary/docspage.php');
